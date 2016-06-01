@@ -1,1 +1,1 @@
-Data Kit a platform that aims to provides information about Nigeria's budget and those responsible.
+Data Kit is a platform that aims to provide information about Nigeria's budget and those responsible for them.

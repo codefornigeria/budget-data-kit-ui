@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.search-box {
+  height: ;
+  padding: 1rem;
+  outline: none;
+  margin-top: 300px;
+}
+.m-b-sm {
+  margin-bottom: 10px;
+}
+.search-box-top {
+  width: 600px;
+  padding: .6rem;
+  outline: none;
+}
+.navbar-header {
+  padding-top: .4rem;
+}
+.result-card {
+  height: 500px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin-left: 15px;
+}

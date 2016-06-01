@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en">
 <head>
-    <title></title>
+    <title>Data Kit</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="dcterms.format" content="text/html" />
     <meta name="dcterms.type" content="Text" />
@@ -26,8 +26,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 
     <!--CSS_VENDORS-->
-    <link rel="stylesheet" href="assets/vendor/angular/ngdialog/ngDialog-theme-plain.css" type="text/css" />
-    <link rel="stylesheet" href="assets/vendor/angular/ngdialog/ngDialog.min.css" type="text/css" />
     <link rel="stylesheet" href="assets/vendor/animate/animate.css" type="text/css" />
     <link rel="stylesheet" href="assets/vendor/bootstraps/bootstraps.css" type="text/css" />
     <link rel="stylesheet" href="assets/vendor/font-awesome/font-awesome.css" type="text/css">
@@ -40,9 +38,7 @@
     <script src="assets/vendor/angular/angular-animate/angular-animate.js"></script>
     <script src="assets/vendor/angular/angular-bootstrap/ui-bootstrap-custom-tpls-0.14.3.min.js"></script>
     <script src="assets/vendor/angular/angular-ui-router/angular-ui-router.js"></script>
-    <script src="assets/vendor/angular/ngdialog/ngDialog.min.js"></script>
     <script src="assets/vendor/angular/restangular/restangular.min.js"></script>
-    <script src="assets/vendor/angular/ui-paging/ui-paging.js"></script>
     <script src="assets/vendor/angular/underscore/underscore-min.js"></script>
     <!--JS_VENDORS END-->
 
@@ -52,9 +48,7 @@
     <!--JS_SCRIPTS END-->
 
 </head>
-
-<body>
-
-</body>
-
+    <body>
+        <div ng-app="app" ui-view></div>
+    </body>
 </html>
