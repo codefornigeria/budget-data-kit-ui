@@ -1,0 +1,33 @@
+{
+  "name": "sahara-health-ui",
+  "version": "1.0.0",
+   "engines": {
+    "node": "0.12.7"
+  },
+  "description": "front end implementation for Datakit UI",
+  "main": "server.js",
+  "scripts": {
+    "test": "\"echo hello world\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codefornigeria/healthtoolsv2.git"
+  },
+  "keywords": [
+    "Ministry",
+    "MDAS",
+    "Persons",
+    "Senators",
+    "Representatives",
+    "Budgets"
+  ],
+  "author": "tobi oladele , inioluwa adebanjo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codefornigeria/data-kit-ui.git"
+  },
+  "homepage": "https://github.com/codefornigeria/data-kit-ui#readme",
+  "dependencies": {
+    "node-static": "^0.7.7"
+  }
+}
