@@ -2,15 +2,13 @@
 angular.module('app', [
     'ui.router',
     'ngAnimate',
-    'ngDialog',
     'restangular',
     'ui.bootstrap',
-    'ui.paging',
     'app.controllers'
 ])
 
-.config(['$stateProvider', '$urlRouterProvider', 'ngDialogProvider', 'RestangularProvider',
-  function($stateProvider, $urlRouterProvider, ngDialogProvider, RestangularProvider) {
+.config(['$stateProvider', '$urlRouterProvider', 'RestangularProvider',
+  function($stateProvider, $urlRouterProvider, RestangularProvider) {
   RestangularProvider.setBaseUrl('https://sahara-health-api.herokuapp.com/');
 
   RestangularProvider.addResponseInterceptor(function (data, operation, what, url, response, deferred) {
@@ -28,17 +26,11 @@ angular.module('app', [
     templateUrl: 'modules/home.html',
     controller: 'appCtrl'
   })
-    .state('article', {
-      url: '/:id',
-      templateUrl: 'modules/article.html',
-      controller: 'articleReadCtrl'
+    .state('results', {
+      url: '/bukola-saraki',
+      templateUrl: 'modules/search-result.html',
+      controller: 'resultCtrl'
     })  
 
-  $urlRouterProvider.otherwise('/home')
-
-  ngDialogProvider.setDefaults({
-      className: 'ngdialog-theme-plain',
-      showClose: false,
-  });
-  
+  $urlRouterProvider.otherwise('/404')  
 }]);
