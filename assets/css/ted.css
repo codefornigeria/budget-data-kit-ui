@@ -1,0 +1,52 @@
+.purple {
+	background: purple;
+}
+
+.phone {
+	color: #13A8C2 !important;
+}
+
+.padder {
+	padding: 30px !important;
+}
+
+.no-padder {
+	padding: 0;
+}
+
+.p-t-sm {
+	padding-top: 15px;
+}
+
+.p-t-lg {
+	padding-top: 100px;
+}
+
+.m-b-sm {
+	margin-bottom: 10px;
+}
+
+.m-t-xxl {
+	margin-top: 200px;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+.index-5 {
+	z-index: 5;
+}
+.hero-text {
+	font-size: 56px;
+	font-weight: 900;
+	color: #FFF;
+}
+
+.bg-light {
+	background: #FAFAFA;
+}
