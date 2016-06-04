@@ -10,6 +10,14 @@
 	padding: 30px !important;
 }
 
+.padder-top {
+	padding-top: 30px !important;
+}
+
+.padder-bottom {
+	padding-bottom: 30px !important;
+}
+
 .no-padder {
 	padding: 0;
 }
@@ -49,4 +57,12 @@
 
 .bg-light {
 	background: #FAFAFA;
+}
+
+.text-md {
+	font-size: 18px;
+}
+
+.text-bold {
+	font-weight: 800;
 }

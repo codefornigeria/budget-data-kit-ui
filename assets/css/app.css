@@ -4,6 +4,9 @@
   margin: 0;
   font-family: 'Open Sans', Helvetica;
 }
+body {
+  background: #F9F9F9;
+}
 .hero {
   width: 100%;
   min-height: 400px;
@@ -25,12 +28,25 @@
 }
 .search-box {
   height: ;
-  padding: 2rem;
+  padding: 1.5rem;
   outline: none;
   margin-top: 10px;
   font-size: 2rem;
   border-radius: 6px;
   border: 0;
+}
+.card-md {
+  background: #FFF;
+  border: 1px solid #e8e8e8;
+  height: 300px;
+}
+.card-md:hover {
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.15s ease-out;
+}
+.footer {
+  height: 100px;
+  line-height: 100px;
 }
 .search-result {
   height: 300px;
