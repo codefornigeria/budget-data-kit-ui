@@ -1,67 +1,57 @@
+
+// @import url(https://fonts.googleapis.com/css?family=Lato:400,900,300,100);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,300);
+
 * {
 	padding: 0;
 	margin: 0;
+	font-family: 'Open Sans', Helvetica;
 }
 
-.purple {
-	background: purple;
-}
+// .bg {
+// 	position: absolute;
+//     left: 0;
+//     bottom: 0px;
+//     background-image: url("http://tweet-senate.herokuapp.com/assets/senate-f3c5463087d1661a3938f422cfd2200edbf064d77306e1f8665f71e050a0ffcc.png");
+//     background-repeat: no-repeat;
+//     background-size: contain;
+//     background-position: center bottom;
+//     width: 100%;
+//     height: 500px;
+//     z-index: 1;
+//     opacity: 0.35;
+// }
 
-.phone {
-	color: #13A8C2 !important;
-}
-
-.padder {
-	padding: 30px !important;
-}
-
-.no-padder {
-	padding: 0;
-}
-
-.m-b-sm {
-	margin-bottom: 10px;
-}
-
-.m-t-xxl {
-	margin-top: 200px;
-}
-
-.text-center {
+.hero {
+	width: 100%;
+	min-height: 400px;
+	position: relative;
 	text-align: center;
-}
+	z-index: 1;
+	background-image: linear-gradient(rgba(77,109,195,0.85), rgba(77,109,195,0.85)), url("http://tweet-senate.herokuapp.com/assets/senate-f3c5463087d1661a3938f422cfd2200edbf064d77306e1f8665f71e050a0ffcc.png");
+	background-position: center;
 
-.clickable {
-	cursor: pointer;
-}
+	.header {
+		font-size: 56px;
+		font-weight: 900;
+		color: #FFF;
+	}
 
-.index-5 {
-	z-index: 5;
-}
-.hero-text {
-	font-size: 24px;
-	color: #000;
-}
-
-.bg {
-	position: absolute;
-    left: 0;
-    bottom: 0px;
-    background-image: url("http://tweet-senate.herokuapp.com/assets/senate-f3c5463087d1661a3938f422cfd2200edbf064d77306e1f8665f71e050a0ffcc.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center bottom;
-    width: 100%;
-    height: 500px;
-    z-index: 1;
-    opacity: 0.35;
+	.sub-header {
+		font-size: 24px;
+		font-weight: 300;
+		color: #FFF;
+	}
 }
 
 .search-box {
 	height: ;
-	padding: 1rem;
+	padding: 2rem;
 	outline: none;
-	margin-top: 50px;
+	margin-top: 10px;
+	font-size: 2rem;
+	border-radius: 6px;
+	border: 0;
 	// z-index: 5;
 }
 
@@ -102,9 +92,8 @@
 .result-card {
 	height: auto;
 	background: #fff;
-	box-shadow: 0 6px 20px 0 rgba(0,0,0,0.2);
-	// margin-left: 15px;
-	margin-top: 100px;
+	box-shadow: 0 1px 2px rgba(0,0,0,.1);
+	margin-top: 0;
 	border: 0;
 	padding-bottom: 50px;
 
@@ -123,9 +112,9 @@
 
 	.header {
 		background: #F3F3F3;
-		min-height: 300px;
+		min-height: 200px;
 		position: relative;
-		padding-top: 106px;
+		padding-top: 30px;
 
 		h2 {
 			font-size: 28px;
@@ -159,6 +148,11 @@
 		color: #808080;
 		font-weight: 400;
 	}
+}
+
+.suggestions {
+	height: 600px;
+	background: #FFF;
 }
 
 .side-bar {
