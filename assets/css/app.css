@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,300);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300);
 * {
   padding: 0;
   margin: 0;
@@ -39,6 +39,7 @@ body {
   background: #FFF;
   border: 1px solid #e8e8e8;
   height: 300px;
+  padding-top: 15px;
 }
 .card-md:hover {
   box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.15);
