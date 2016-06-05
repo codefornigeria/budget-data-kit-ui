@@ -48,6 +48,7 @@ body {
 .footer {
   height: 100px;
   line-height: 100px;
+  text-transform: capitalize;
 }
 .search-result {
   height: 300px;
