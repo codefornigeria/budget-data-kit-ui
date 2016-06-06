@@ -1,6 +1,6 @@
 <div class="bg-light">
     <nav class="navigation">
-        <input class="search-box-top" ng-model="searchKeyword" type="text"  ng-enter="search()">
+        <input class="search-box-top" ng-model="searchKeyword" type="text"  ng-enter="search()" ng-class="{'empty': !searchKeyword}">
     </nav>
 
     <div class="container">
