@@ -1,53 +1,9 @@
 <div class="bg-light">
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-        	<div class="navbar-header">
-        		<!-- <a class="navbar-brand">Data Kit</a> -->
-        	</div>
-        	<ul class="nav navbar-nav">
-        		<li><a><input class="search-box-top" type="text" placeholder=""></a></li>
-        	</ul>
-        </div>
+    <nav class="navigation">
+        <input class="search-box-top" ng-model="searchKeyword" type="text"  ng-enter="search()">
     </nav>
 
     <div class="container">
-    	<div class="col-md-8 result-card no-padder">
-           <!--  <div class="avatar">
-                
-            </div> -->
-
-    		<div class="text-center header">
-                <div class="col-md-8 col-md-offset-2">
-                    <h2>Bukola Saraki</h2>
-                    <p>Bukola Saraki is the senate leader of the Federal republic of Nigeria.</p>
-                </div>
-            </div>
-
-            <div class="col-md-12 padder">
-                <h3>Projects</h3>
-                <p>Construction  of 1,500 poles of solar street light @ N750,000 per pole at selected streets in Kwara Central senatorial district, Kwara State</p>
-                <p><b>Agency: </b> LNRBDA<p>
-                <p><b>Budget: </b> N 1,125,000,000</p>
-                <hr>
-                <p>Construction  of community recreation center Epe, Lagos</p>
-                <p><b>Agency: </b> UBEC<p>
-                <p><b>Budget: </b> N 1'050'000'000</p>
-            </div>
-
-            <div class="col-md-12 m-b-sm padder">
-                <h3>Contact Info</h3>
-                <p>Kwara state</p>
-                <p>Kwara Central</p>
-                <p>bukolasaraki@gmail.com</p>
-                <p class="phone">0802 374 6589</p>
-            </div>
-    	</div>
-
-        <div class="col-md-4">
-            <div class="col-md-12 suggestions p-t-sm">
-            <b>See also</b>
-                
-            </div>
-        </div>
+    	
     </div>
 </div>
