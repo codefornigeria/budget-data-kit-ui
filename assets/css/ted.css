@@ -26,12 +26,24 @@
 	padding-top: 15px;
 }
 
+.p-t-md {
+	padding-top: 50px;
+}
+
 .p-t-lg {
 	padding-top: 100px;
 }
 
 .m-b-sm {
 	margin-bottom: 10px;
+}
+
+.m-b-md {
+	margin-bottom: 30px;
+}
+
+.m-t-md {
+	margin-top: 30px;
 }
 
 .m-t-xxl {
