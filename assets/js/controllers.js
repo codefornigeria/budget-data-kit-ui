@@ -19,4 +19,12 @@ angular.module('app.controllers', [])
     		console.log($stateParams);
     	}
     }
+
+    $scope.showResult = function() {
+        $scope.overlay = true;
+    }
+
+    $scope.close = function() {
+        $scope.overlay = false;
+    }
 })

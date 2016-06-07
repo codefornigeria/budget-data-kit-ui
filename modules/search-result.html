@@ -12,7 +12,7 @@
 
 		<div class="row padder-top m-t-md animated animate-slow fadeInUp">
 			<div class="col-md-4 m-b-md">
-				<div class="col-md-12 card-md">
+				<div class="col-md-12 card-md" ng-click="showResult()">
 					<span class="col-md-12 no-padder">
 						<p>Construction of 1,500 poles of solar street light @ N750,000 per pole at selected streets in Kwara Central senatorial district, Kwara State</p>
 						<hr>
@@ -40,7 +40,7 @@
 				</div>
 			</div>
 			<div class="col-md-4 m-b-md">
-				<div class="col-md-12 card-md">
+				<div class="col-md-12 card-md" ng-click="showResult()">
 					<span class="col-md-12 no-padder">
 						<p>Construction of 1,500 poles of solar street light @ N750,000 per pole at selected streets in Kwara Central senatorial district, Kwara State</p>
 						<hr>
@@ -68,7 +68,7 @@
 				</div>
 			</div>
 			<div class="col-md-4 m-b-md">
-				<div class="col-md-12 card-md">
+				<div class="col-md-12 card-md" ng-click="showResult()">
 					<span class="col-md-12 no-padder">
 						<p>Supply of empowerment materials in Borno state senetorial district. Borno State.</p>
 						<hr>
@@ -96,7 +96,7 @@
 				</div>
 			</div>
 			<div class="col-md-4 m-b-md">
-				<div class="col-md-12 card-md">
+				<div class="col-md-12 card-md" ng-click="showResult()">
 					<span class="col-md-12 no-padder">
 						<h3>Bukola Saraki</h3>
 						<h5>Senator</h5>
@@ -124,7 +124,7 @@
 				</div>
 			</div>
 			<div class="col-md-4 m-b-md">
-				<div class="col-md-12 card-md">
+				<div class="col-md-12 card-md" ng-click="showResult()">
 					<span class="col-md-12 no-padder">
 						<h3>Samuel Okon</h3>
 						<h5>Representative</h5>
@@ -152,7 +152,7 @@
 				</div>
 			</div>
 			<div class="col-md-4 m-b-md">
-				<div class="col-md-12 card-md">
+				<div class="col-md-12 card-md" ng-click="showResult()">
 					<span class="col-md-12 no-padder">
 						<h3>Agunsoye Oluwarotimi Ojo</h3>
 						<h5>Representative</h5>
@@ -182,6 +182,10 @@
 
 		</div>
 	</div>
-
+	<div class="overlay" ng-show="overlay">
+		<div class="col-md-6 panel animated  fadeInLeft padder">
+			<i class="fa fa-arrow-left clickable right" ng-click="close()"></i>
+		</div>
+	</div>
 	<div id="gradient"></div>
 </div>
