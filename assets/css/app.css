@@ -7,6 +7,9 @@
 body {
   background: #F9F9F9;
 }
+.none {
+  display: none;
+}
 .hero {
   width: 100%;
   min-height: 400px;
@@ -79,6 +82,20 @@ body {
   width: 60%;
   padding: .6rem;
   outline: none;
+}
+.overlay {
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.overlay .panel {
+  height: 100%;
+  background: #fff;
+  border-right: 2px solid #2bb8f6;
 }
 #gradient {
   position: fixed;
