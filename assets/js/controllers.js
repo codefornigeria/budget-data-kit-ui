@@ -1,20 +1,28 @@
 angular.module('app.controllers', [])
+
+.factory('API', ['Restangular', function(Restangular) {
+    return Restangular.withConfig(function(RestangularConfigurer) {
+         RestangularConfigurer.setBaseUrl('https://sahara-datakit-api.herokuapp.com/');
+    });
+ }])
   
 .controller('appCtrl', function($scope, Restangular, $state, $stateParams) {
 	// console.log('Here')
 	$scope.search = function() {
-        if ($scope.searchKeyword){
-            $state.go('results', {query: $scope.searchKeyword});
-        }
+        if ($scope.searchKeyword){ 
+            Restangular.one('search').get({query: $scope.searchKeyword}).then(function(response){
+                $scope.results = response;
 
-  //       Restangular.one('search').get({query: $scope.searchKeyword}).then(function(response){
-  //               $scope.results = response;
-  //               console.log(response.plain())
-  //            }, function(error){
-  //               $scope.error = error;
-  //       });
-		// console.log("works")
-    	
+                $scope.persons = $scope.results.person;
+                $scope.projects = $scope.results.project;
+                $scope.total =  parseInt($scope.results.person.length) +  parseInt($scope.results.project.length);
+                // console.log($scope.results.plain())
+             }, function(error){
+                $scope.error = error;
+            })
+            
+            $state.go('results', {query: $scope.searchKeyword})
+        }
     }
 })
 
@@ -23,17 +31,33 @@ angular.module('app.controllers', [])
 
     $scope.search = function() {
     	if ($scope.searchKeyword){
-
     		Restangular.one('search').get({query: $scope.searchKeyword}).then(function(response){
                 $scope.results = response;
-                console.log(response.plain())
+                $scope.persons = $scope.results.person;
+                $scope.projects = $scope.results.project;
+                $scope.total =  parseInt($scope.results.person.length) +  parseInt($scope.results.project.length);
+                // console.log($scope.results.plain())
              }, function(error){
                 $scope.error = error;
             });
     	}
     }
 
-    $scope.showResult = function() {
+    $scope.search();
+
+    $scope.showResult = function(person) {
+        console.log(person)
+        Restangular.one('person').get(person.id).then(function(response){
+            // console.log(response.plain())
+        })
+        $scope.overlay = true;
+    }
+
+    $scope.showProject = function(project) {
+        // console.log(person)
+        Restangular.one('project').get(project.id).then(function(response){
+            console.log(response.plain())
+        })
         $scope.overlay = true;
     }
 

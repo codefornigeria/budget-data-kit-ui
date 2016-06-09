@@ -5,106 +5,22 @@
 
 	<div class="container p-t-md">
 		<div class="col-md-12 no-padder">
-			<div class="col-md-2 search-num">
-				6 results
+			<div class="col-md-2 search-num" ng-show="total">
+				{{total}} results
 			</div>
 		</div>
 
 		<div class="row padder-top m-t-md animated animate-slow fadeInUp">
-			<div class="col-md-4 m-b-md">
-				<div class="col-md-12 card-md" ng-click="showResult()">
+			<div class="col-md-4 m-b-md" ng-repeat="person in persons">
+				<div class="col-md-12 card-md" ng-click="showResult(person)">
 					<span class="col-md-12 no-padder">
-						<p>Construction of 1,500 poles of solar street light @ N750,000 per pole at selected streets in Kwara Central senatorial district, Kwara State</p>
-						<hr>
-					</span>
-					
-					<span class="col-md-6 no-padder">
-						<b>Agency</b>
-						<p>LNRBDA</p>
-					</span>
-
-					<span class="col-md-6 no-padder">
-						<b>Budget</b>
-						<p>N 1,125,000,000</p>
-					</span>
-
-					<span class="col-md-6 no-padder">
-						<b>Start Date</b>
-						<p>January 2016</p>
-					</span>
-
-					<span class="col-md-6 no-padder">
-						<b>End Date</b>
-						<p>August 2017</p>
-					</span>	
-				</div>
-			</div>
-			<div class="col-md-4 m-b-md">
-				<div class="col-md-12 card-md" ng-click="showResult()">
-					<span class="col-md-12 no-padder">
-						<p>Construction of 1,500 poles of solar street light @ N750,000 per pole at selected streets in Kwara Central senatorial district, Kwara State</p>
-						<hr>
-					</span>
-					
-					<span class="col-md-6 no-padder">
-						<b>Agency</b>
-						<p>LNRBDA</p>
-					</span>
-
-					<span class="col-md-6 no-padder">
-						<b>Budget</b>
-						<p>N 1,125,000,000</p>
-					</span>
-
-					<span class="col-md-6 no-padder">
-						<b>Start Date</b>
-						<p>January 2016</p>
-					</span>
-
-					<span class="col-md-6 no-padder">
-						<b>End Date</b>
-						<p>August 2017</p>
-					</span>	
-				</div>
-			</div>
-			<div class="col-md-4 m-b-md">
-				<div class="col-md-12 card-md" ng-click="showResult()">
-					<span class="col-md-12 no-padder">
-						<p>Supply of empowerment materials in Borno state senetorial district. Borno State.</p>
-						<hr>
-					</span>
-					
-					<span class="col-md-6 no-padder">
-						<b>Agency</b>
-						<p>LNRBDA</p>
-					</span>
-
-					<span class="col-md-6 no-padder">
-						<b>Budget</b>
-						<p>N 1,125,000,000</p>
-					</span>
-
-					<span class="col-md-6 no-padder">
-						<b>Start Date</b>
-						<p>January 2016</p>
-					</span>
-
-					<span class="col-md-6 no-padder">
-						<b>End Date</b>
-						<p>August 2017</p>
-					</span>	
-				</div>
-			</div>
-			<div class="col-md-4 m-b-md">
-				<div class="col-md-12 card-md" ng-click="showResult()">
-					<span class="col-md-12 no-padder">
-						<h3>Bukola Saraki</h3>
-						<h5 class="badge">Senator</h5>
+						<h3>{{person.name}}</h3>
+						<!-- <h5 class="badge">Senator</h5> -->
 						<hr>
 					</span>
 
 					<span class="col-md-12 no-padder">
-						<p>Bukola Saraki is the leader of the Federal republic of Nigeria.</p>
+						<p>{{person.about}}</p>
 					</span>
 
 					<span class="col-md-6 no-padder">
@@ -114,72 +30,49 @@
 
 					<span class="col-md-6 no-padder">
 						<b>State</b>
-						<p>Kwara</p>	
+						<p>{{person.state.name}}</p>	
 					</span>
 
 					<span class="col-md-6 no-padder">
 						<b>District</b>
-						<p>Kwara Central</p>
+						<p>{{person.district.name}}</p>
 					</span>
 				</div>
 			</div>
-			<div class="col-md-4 m-b-md">
-				<div class="col-md-12 card-md" ng-click="showResult()">
+
+			<div class="col-md-4 m-b-md" ng-repeat="project in projects">
+				<div class="col-md-12 card-md" ng-click="showProject(project)">
 					<span class="col-md-12 no-padder">
-						<h3>Samuel Okon</h3>
-						<h5 class="badge">Representative</h5>
+						<p class="project-desc">{{project.description}}</p>
 						<hr>
 					</span>
 
-					<span class="col-md-12 no-padder">
-						<p>Lorem ipsum dior na arec hat cas tee suyi.</p>
+					<span class="col-md-6 no-padder">
+						<b>Handler</b>
+						<p>{{project.person.name}}</p>
+					</span>
+					
+					<span class="col-md-6 no-padder">
+						<b>Agency</b>
+						<p>{{project.agency}}</p>
 					</span>
 
 					<span class="col-md-6 no-padder">
-						<b>Political party</b>
-						<p>PDP</p>
+						<b>Budget</b>
+						<p>N{{project.cost | number : fractionSize}}</p>
 					</span>
 
 					<span class="col-md-6 no-padder">
 						<b>State</b>
-						<p>Akwa Ibom</p>	
+						<p>{{project.state.name}}</p>
 					</span>
 
 					<span class="col-md-6 no-padder">
-						<b>Constituency</b>
-						<p>Nsit Ibom</p>
-					</span>
+						<b>Ministry</b>
+						<p>{{project.ministry}}</p>
+					</span>	
 				</div>
 			</div>
-			<div class="col-md-4 m-b-md">
-				<div class="col-md-12 card-md" ng-click="showResult()">
-					<span class="col-md-12 no-padder">
-						<h3>Agunsoye Oluwarotimi Ojo</h3>
-						<h5 class="badge">Representative</h5>
-						<hr>
-					</span>
-
-					<span class="col-md-12 no-padder">
-						<p>Lorem ipsum dior na arec hat cas tee suyi.</p>
-					</span>
-
-					<span class="col-md-6 no-padder">
-						<b>Political party</b>
-						<p>APC</p>
-					</span>
-
-					<span class="col-md-6 no-padder">
-						<b>State</b>
-						<p>Lagos</p>	
-					</span>
-
-					<span class="col-md-6 no-padder">
-						<b>Constituency</b>
-						<p>Ikeja</p>
-					</span>
-				</div>
-			</div>
-
 		</div>
 	</div>
 	<div class="overlay" ng-show="overlay">
