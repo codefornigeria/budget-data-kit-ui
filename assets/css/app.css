@@ -86,7 +86,7 @@ body {
 .overlay {
   height: 100%;
   width: 100%;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.7);
   position: fixed;
   top: 0;
   left: 0;
@@ -95,7 +95,35 @@ body {
 .overlay .panel {
   height: 100%;
   background: #fff;
-  border-right: 2px solid #2bb8f6;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  margin-top: 60px;
+  overflow: scroll;
+  padding-bottom: 50px;
+}
+.overlay .panel h1 {
+  text-transform: capitalize;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 20px;
+}
+.overlay .panel .avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid #2bb8f6;
+  margin: 0 auto;
+  background: url('../img/a1.jpg');
+  background-position: center;
+  background-repeat: none;
+}
+.overlay .panel .bio {
+  height: auto;
+  background: #f5f5f5;
+}
+@media all and (min-width: 320px) and (max-width: 640px) {
+  .overlay .panel {
+    margin-top: 0;
+  }
 }
 #gradient {
   position: fixed;

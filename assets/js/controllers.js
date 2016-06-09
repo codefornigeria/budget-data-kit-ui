@@ -46,17 +46,20 @@ angular.module('app.controllers', [])
     $scope.search();
 
     $scope.showResult = function(person) {
-        console.log(person)
-        Restangular.one('person').get(person.id).then(function(response){
-            // console.log(response.plain())
+        // console.log(person)
+        Restangular.one('person', person.id).get().then(function(response){
+            console.log(response.plain())
+            $scope.entity = response;
+            $scope.contracts = response.projects;
         })
         $scope.overlay = true;
     }
 
     $scope.showProject = function(project) {
-        // console.log(person)
-        Restangular.one('project').get(project.id).then(function(response){
-            console.log(response.plain())
+        // console.log(project)
+        Restangular.one('project', project._id).get().then(function(response){
+            // console.log(response.plain())
+
         })
         $scope.overlay = true;
     }

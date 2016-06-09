@@ -76,8 +76,85 @@
 		</div>
 	</div>
 	<div class="overlay" ng-show="overlay">
-		<div class="col-md-6 panel animated  fadeInLeft padder">
-			<i class="fa fa-arrow-left clickable right" ng-click="close()"></i>
+		<div class="col-md-6 col-md-offset-3 panel animated animate-slow  fadeInUp no-padder">
+			<div class="col-md-12 bio padder">
+				<i class="fa fa-close clickable right" ng-click="close()"></i>
+				<div class="avatar"></div>
+				<h1 class="text-center">{{entity.name}}</h1>
+				<p class="text-justify">Senator of the Federal Republic of Nigeria from Lagos State. He represents Lagos East in the current 7th National Assembly. Senator Ashafa is the Vice-Chairman, Senate Committee on Lands, Housing and Urban Development. He is also a member of the following Senate committees: Environment and Ecology Committee, Committee on Federal Character and Inter-Governmental Relations, Gas Committee, and Senate Services Committee.
+				</p>
+			</div>
+			<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
+				<b>Political Party</b>
+				<p ng-if="entity.party">{{entity.party}}</p>
+				<p ng-if="!entity.party">Not Available</p>
+			</div>
+			<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
+				<b>State</b>
+				<p ng-if="entity.state.name">{{entity.state.name}}</p>
+				<p ng-if="!entity.state.name">Not Available</p>
+
+			</div>
+			<div class="col-xs-6 col-md-4 text-center b-b p-t-sm">
+				<b>District</b>
+				<p ng-if="entity.district.name">{{entity.district.name}}</p>
+				<p ng-if="!entity.district.name">Not Available</p>
+
+			</div>
+			<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
+				<b>Country</b>
+				<p ng-if="entity.state.country">{{entity.state.country}}</p>
+				<p ng-if="!entity.state.country">Not Available</p>
+
+			</div>
+			<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
+				<b>Phone Number</b>
+				<p ng-if="entity.phone">(234) {{entity.phone}}</p>
+				<p ng-if="!entity.phone">Not Available</p>
+
+			</div>
+			<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
+				<b>Email</b>
+				<p ng-if="entity.email">{{entity.email}}</p>
+				<p ng-if="!entity.email">Not Available</p>
+			</div>
+			
+			<div class="col-md-12 m-t-md">
+				<h5 class="text-bold text-uppercase">Projects</h5>
+			</div>
+			<div class="panel-body selectable col-md-12 panel-top" ng-repeat="contract in contracts" ng-click="showTab = !showTab" ng-class="{'bg-light': showTab}">
+                Construction of 250 solar powered lights on the streets of lekki - ikoyi.
+                <i class="fa fa-angle-down pull-right" ng-show="!showTab"></i>
+                <i class="fa fa-angle-up pull-right" ng-show="showTab"></i>
+                <ul class="list-group m-t-md" ng-show="showTab">
+                	<li class="list-group-item col-md-12">
+                        <b>{{contract.description}}</b>
+                    </li>
+                    <li class="list-group-item col-xs-6 col-md-4">
+                        <h5>Ministry</h5>
+                        <b>{{contract.ministry}}</b>
+                        <b ng-if="!contract.ministry">NA</b>
+                    </li>
+
+                    <li class="list-group-item col-xs-6 col-md-4">
+                        <h5>Agency</h5>
+                        <b>{{contract.agency}}</b>
+                    </li>
+
+                    <li class="list-group-item col-xs-6 col-md-4">
+                        <h5>Cost</h5>
+                        <b>N{{contract.cost | number: fractionSize}}</b>
+                    </li>
+                    <li class="list-group-item col-xs-6 col-md-4">
+                        <h5>District</h5>
+                        <b>{{contract.district.name}}</b>
+                    </li>
+                    <li class="list-group-item col-xs-6 col-md-4">
+                        <h5>State</h5>
+                        <b>{{contract.state.name}}</b>
+                    </li>
+                </ul>
+            </div>
 		</div>
 	</div>
 	<div id="gradient"></div>
