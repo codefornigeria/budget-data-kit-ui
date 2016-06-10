@@ -122,8 +122,8 @@
 			<div class="col-md-12 m-t-md">
 				<h5 class="text-bold text-uppercase">Projects</h5>
 			</div>
-			<div class="panel-body selectable col-md-12 panel-top" ng-repeat="contract in contracts" ng-click="showTab = !showTab" ng-class="{'bg-light': showTab}">
-                Construction of 250 solar powered lights on the streets of lekki - ikoyi.
+			<div class="panel-body selectable col-md-12 panel-top b-b" ng-repeat="contract in contracts" ng-click="showTab = !showTab" ng-class="{'bg-light': showTab}">
+                <div class="truncate pull-left">{{contract.description}}</div>
                 <i class="fa fa-angle-down pull-right" ng-show="!showTab"></i>
                 <i class="fa fa-angle-up pull-right" ng-show="showTab"></i>
                 <ul class="list-group m-t-md" ng-show="showTab">
