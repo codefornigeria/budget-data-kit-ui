@@ -9,12 +9,6 @@ angular.module('app', [
 
 .config(['$stateProvider', '$urlRouterProvider', 'RestangularProvider',
   function($stateProvider, $urlRouterProvider, RestangularProvider) {
-     // RestangularProvider.setDefaultHeaders({
-     //    "Content-Type": "application/json",
-     //    "X-Requested-With": "XMLHttpRequest",
-        
-     //  });
-
       RestangularProvider.setBaseUrl('https://sahara-datakit-api.herokuapp.com/');
 
       RestangularProvider.addResponseInterceptor(function (data, operation, what, url, response, deferred) {
