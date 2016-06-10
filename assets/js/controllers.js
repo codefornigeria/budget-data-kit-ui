@@ -31,13 +31,21 @@ angular.module('app.controllers', [])
 
     $scope.search = function() {
     	if ($scope.searchKeyword){
+            $scope.searching = true;
     		Restangular.one('search').get({query: $scope.searchKeyword}).then(function(response){
-                $scope.results = response;
-                $scope.persons = $scope.results.person;
-                $scope.projects = $scope.results.project;
-                $scope.total =  parseInt($scope.results.person.length) +  parseInt($scope.results.project.length);
+                $scope.searching = false;
+                if (response.person == '' && response.project == '') {
+                    $scope.notFound = true;
+                } else {
+                    $scope.results = response;
+                    $scope.persons = $scope.results.person;
+                    $scope.projects = $scope.results.project;
+                    $scope.total =  parseInt($scope.results.person.length) +  parseInt($scope.results.project.length);
+                }
+                
                 // console.log($scope.results.plain())
              }, function(error){
+                $scope.searching = false;
                 $scope.error = error;
             });
     	}
