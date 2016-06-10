@@ -12,11 +12,9 @@ angular.module('app.controllers', [])
         if ($scope.searchKeyword){ 
             Restangular.one('search').get({query: $scope.searchKeyword}).then(function(response){
                 $scope.results = response;
-
                 $scope.persons = $scope.results.person;
                 $scope.projects = $scope.results.project;
                 $scope.total =  parseInt($scope.results.person.length) +  parseInt($scope.results.project.length);
-                // console.log($scope.results.plain())
              }, function(error){
                 $scope.error = error;
             })
@@ -31,6 +29,7 @@ angular.module('app.controllers', [])
 
     $scope.search = function() {
     	if ($scope.searchKeyword){
+            $state.go('results', {query: $scope.searchKeyword})
             $scope.searching = true;
     		Restangular.one('search').get({query: $scope.searchKeyword}).then(function(response){
                 $scope.searching = false;
@@ -42,8 +41,6 @@ angular.module('app.controllers', [])
                     $scope.projects = $scope.results.project;
                     $scope.total =  parseInt($scope.results.person.length) +  parseInt($scope.results.project.length);
                 }
-                
-                // console.log($scope.results.plain())
              }, function(error){
                 $scope.searching = false;
                 $scope.error = error;
@@ -54,9 +51,7 @@ angular.module('app.controllers', [])
     $scope.search();
 
     $scope.showResult = function(person) {
-        // console.log(person)
         Restangular.one('person', person.id).get().then(function(response){
-            console.log(response.plain())
             $scope.entity = response;
             $scope.contracts = response.projects;
         })
