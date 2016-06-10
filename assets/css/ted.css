@@ -10,6 +10,10 @@
 	padding: 30px !important;
 }
 
+.padder-sm {
+	padding: 30px !important;
+}
+
 .padder-top {
 	padding-top: 30px !important;
 }
@@ -32,6 +36,14 @@
 
 .p-t-lg {
 	padding-top: 100px;
+}
+
+.p-l {
+	padding-left: 30px;
+}
+
+.p-r {
+	padding-right: 30px;
 }
 
 .m-b-sm {

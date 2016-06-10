@@ -24,8 +24,8 @@
 			<p>We couldn't find what you were looking for.</p>
 		</div>
 
-		<div class="row padder-top m-t-md animated animate-slow fadeInUp">
-			<div class="col-md-4 m-b-md" ng-repeat="person in persons">
+		<div class="row padder-top m-t-sm animated animate-slow fadeInUp">
+			<div class="col-md-4 m-b-md shadow-mobile" ng-repeat="person in persons">
 				<div class="col-md-12 card-md" ng-click="showResult(person)">
 					<span class="col-md-12 no-padder">
 						<h3>{{person.name}}</h3>
@@ -37,17 +37,17 @@
 						<p>{{person.about}}</p>
 					</span>
 
-					<span class="col-md-6 no-padder">
+					<span class="col-md-6 col-xs-6 no-padder">
 						<b>Political party</b>
 						<p>APC</p>
 					</span>
 
-					<span class="col-md-6 no-padder">
+					<span class="col-md-6 col-xs-6 no-padder">
 						<b>State</b>
 						<p>{{person.state.name}}</p>	
 					</span>
 
-					<span class="col-md-6 no-padder">
+					<span class="col-md-6 col-xs-6 no-padder">
 						<b>District</b>
 						<p>{{person.district.name}}</p>
 					</span>
@@ -61,27 +61,27 @@
 						<hr>
 					</span>
 
-					<span class="col-md-6 no-padder">
+					<span class="col-md-6 col-xs-6 no-padder">
 						<b>Handler</b>
 						<p>{{project.person.name}}</p>
 					</span>
 					
-					<span class="col-md-6 no-padder">
+					<span class="col-md-6 col-xs-6 no-padder">
 						<b>Agency</b>
 						<p>{{project.agency}}</p>
 					</span>
 
-					<span class="col-md-6 no-padder">
+					<span class="col-md-6 col-xs-6 no-padder">
 						<b>Budget</b>
 						<p>N{{project.cost | number : fractionSize}}</p>
 					</span>
 
-					<span class="col-md-6 no-padder">
+					<span class="col-md-6 col-xs-6 no-padder">
 						<b>State</b>
 						<p>{{project.state.name}}</p>
 					</span>
 
-					<span class="col-md-6 no-padder">
+					<span class="col-md-6 col-xs-6 no-padder">
 						<b>Ministry</b>
 						<p>{{project.ministry}}</p>
 					</span>	
@@ -90,7 +90,7 @@
 		</div>
 	</div>
 	<div class="overlay" ng-show="overlay">
-		<div class="col-md-6 col-md-offset-3 panel animated animate-slow  fadeInUp no-padder">
+		<div class="col-md-6 col-md-offset-3 panel animated animate-slow bounceInUp no-padder">
 			<div class="col-md-12 bio padder">
 				<i class="fa fa-close clickable right" ng-click="close()"></i>
 				<div class="avatar"></div>
@@ -133,10 +133,11 @@
 				<p ng-if="!entity.email">Not Available</p>
 			</div>
 			
-			<div class="col-md-12 m-t-md">
-				<h5 class="text-bold text-uppercase">Projects</h5>
+			<div class="col-md-12 p-l p-r projects-header">
+				<h5 class="text-bold text-uppercase text-center">Projects in {{entity.district.name}}</h5>
 			</div>
-			<div class="panel-body selectable col-md-12 panel-top b-b" ng-repeat="contract in contracts" ng-click="showTab = !showTab" ng-class="{'bg-light': showTab}">
+
+			<div class="panel-body clickable col-md-12 panel-top b-b p-r p-l" ng-repeat="contract in contracts" ng-click="showTab = !showTab" ng-class="{'bg-light': showTab}">
                 <div class="truncate pull-left">{{contract.description}}</div>
                 <i class="fa fa-angle-down pull-right" ng-show="!showTab"></i>
                 <i class="fa fa-angle-up pull-right" ng-show="showTab"></i>
