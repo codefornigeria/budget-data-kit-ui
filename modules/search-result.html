@@ -90,7 +90,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="overlay" ng-show="overlay">
+	<div class="overlay overlay-dark" ng-show="personNode">
 		<div class="col-md-6 col-md-offset-3 panel animated animate-slow bounceInUp no-padder">
 			<div class="col-md-12 bio padder">
 				<i class="fa fa-close clickable right" ng-click="close()"></i>
@@ -171,6 +171,49 @@
                     </li>
                 </ul>
             </div>
+		</div>
+	</div>
+	
+	<!--Project Node-->
+	<div class="overlay overlay-dark" ng-show="projectNode">
+		<div class="col-md-6 col-md-offset-3 panel animated animate-slow bounceInUp no-padder">
+			<div class="col-md-12 padder">
+				<i class="fa fa-close clickable right" ng-click="close()"></i>
+			</div>
+			<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
+				<b>Political Party</b>
+				<p ng-if="entity.party">{{entity.party}}</p>
+				<p ng-if="!entity.party">Not Available</p>
+			</div>
+			<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
+				<b>State</b>
+				<p ng-if="entity.state.name">{{entity.state.name}}</p>
+				<p ng-if="!entity.state.name">Not Available</p>
+
+			</div>
+			<div class="col-xs-6 col-md-4 text-center b-b p-t-sm">
+				<b>District</b>
+				<p ng-if="entity.district.name">{{entity.district.name}}</p>
+				<p ng-if="!entity.district.name">Not Available</p>
+
+			</div>
+			<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
+				<b>Country</b>
+				<p ng-if="entity.state.country">{{entity.state.country}}</p>
+				<p ng-if="!entity.state.country">Not Available</p>
+
+			</div>
+			<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
+				<b>Phone Number</b>
+				<p ng-if="entity.phone">(234) {{entity.phone}}</p>
+				<p ng-if="!entity.phone">Not Available</p>
+
+			</div>
+			<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
+				<b>Email</b>
+				<p ng-if="entity.email">{{entity.email}}</p>
+				<p ng-if="!entity.email">Not Available</p>
+			</div>
 		</div>
 	</div>
 	<div id="gradient"></div>
