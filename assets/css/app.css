@@ -89,8 +89,14 @@ body {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 .search-box-top {
+  width: 50%;
   padding: .6rem;
   outline: none;
+}
+@media all and (min-width: 320px) and (max-width: 640px) {
+  .search-box-top {
+    width: 100%;
+  }
 }
 .overlay {
   height: 100%;

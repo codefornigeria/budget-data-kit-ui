@@ -9,7 +9,6 @@
 	</div>
 	<nav class="navigation">
 		<input class="search-box-top col-md-6" ng-model="searchKeyword" type="text"  ng-enter="search()" ng-class="{'empty': !searchKeyword}">
-		<span class="fa fa-search form-control-feedback"></span>
 	</nav>
 
 	<div class="container p-t-md">
@@ -26,7 +25,7 @@
 		</div>
 
 		<div class="row padder-top m-t-sm animated animate-slow fadeInUp">
-			<div class="col-md-4 m-b-md shadow-mobile" ng-repeat="person in persons">
+			<div class="col-md-4 col-sm-6 m-b-md shadow-mobile" ng-repeat="person in persons">
 				<div class="col-md-12 card-md" ng-click="showResult(person)">
 					<span class="col-md-12 no-padder">
 						<h3>{{person.name}}</h3>
@@ -55,7 +54,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-4 m-b-md" ng-repeat="project in projects">
+			<div class="col-md-4 col-sm-6 m-b-md" ng-repeat="project in projects">
 				<div class="col-md-12 card-md" ng-click="showProject(project)">
 					<span class="col-md-12 no-padder">
 						<p class="project-desc">{{project.description}}</p>
