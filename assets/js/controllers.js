@@ -51,26 +51,26 @@ angular.module('app.controllers', [])
     $scope.search();
 
     $scope.showResult = function(person) {
-        console.log(person)
         Restangular.one('person', person.id).get().then(function(response){
             $scope.entity = response;
-            console.log($scope.entity)
+            console.log($scope.entity.plain());
             $scope.contracts = response.projects;
-            console.log($scope.contracts)
+            // console.log($scope.contracts)
         })
-        $scope.overlay = true;
+        $scope.personNode = true;
     }
 
     $scope.showProject = function(project) {
-        // console.log(project)
         Restangular.one('project', project._id).get().then(function(response){
-            // console.log(response.plain())
-
+            $scope.entity = response;
+            console.log($scope.entity.plain());
+            // $scope.contracts = response.projects;
         })
-        $scope.overlay = true;
+        $scope.projectNode = true;
     }
 
     $scope.close = function() {
-        $scope.overlay = false;
+        $scope.personNode = false;
+        $scope.projectNode = false;
     }
 })

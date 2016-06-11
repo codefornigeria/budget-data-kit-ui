@@ -78,7 +78,7 @@ body {
 	padding: 1.5rem;
 	outline: none;
 	margin-top: 10px;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	border-radius: 6px;
 	border: 0;
 	// z-index: 5;
@@ -98,6 +98,13 @@ body {
 
 	@media @mobile {
 	    box-shadow:0 1px 8px 0 rgba(0,0,0,.15);
+	    margin-bottom: 20px;
+	}
+
+	b {
+		text-transform: uppercase;
+		font-weight: normal;
+		font-size: 10px;
 	}
 }
 
@@ -114,6 +121,7 @@ body {
 	padding-left: 5%;
 	padding-right: 5%;
 	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+	position: relative;
 
 	@media @mobile {
 	    padding: 0;
@@ -125,6 +133,26 @@ body {
 		border-top: 0;
 		border-bottom: 2px solid skyblue;
 		padding: 15px;
+		padding-left: 20px;
+	}
+
+	.fa-search {
+		position: absolute;
+		left: 47%;
+		top: 20px;
+		z-index: 1;
+	}
+}
+
+.home-search {
+	position: relative;
+
+	.fa-search {
+		color: grey;
+		position: absolute;
+		top: 28px;
+		right: 8%;
+		z-index: 1;
 	}
 }
 
@@ -140,13 +168,18 @@ body {
 }
 
 .search-box-top {
+	width: 50%;
 	padding: .6rem;
 	outline: none;
+
+	@media @mobile {
+		width: 100%;
+	}
 }
 
 .overlay {
 	.square(100%);
-	background: rgba(0,0,0,0.7);
+	background: rgba(43,184,246,0.9);
 	.fixed;
 	// .none;
 	top: 0;
@@ -189,6 +222,10 @@ body {
 	        margin-top: 0;
 	    }
 	}
+}
+
+.overlay-dark {
+	background: rgba(0,0,0,0.8);
 }
 
 #gradient {
