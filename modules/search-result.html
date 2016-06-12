@@ -138,7 +138,7 @@
 			</div>
 
 			<div class="panel-body clickable col-md-12 panel-top b-b p-r p-l" ng-repeat="contract in contracts" ng-click="showTab = !showTab" ng-class="{'bg-light': showTab}">
-                <div class="truncate pull-left">{{contract.description}}</div>
+                <div class="truncate pull-left capitalize">{{contract.description}}</div>
                 <i class="fa fa-angle-down pull-right" ng-show="!showTab"></i>
                 <i class="fa fa-angle-up pull-right" ng-show="showTab"></i>
                 <ul class="list-group m-t-md" ng-show="showTab">
