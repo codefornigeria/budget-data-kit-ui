@@ -118,8 +118,7 @@
 			</div>
 			<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
 				<b>Country</b>
-				<p ng-if="entity.state.country">{{entity.state.country}}</p>
-				<p ng-if="!entity.state.country">Not Available</p>
+				<p>Nigeria</p>
 
 			</div>
 			<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
@@ -143,8 +142,8 @@
                 <i class="fa fa-angle-down pull-right" ng-show="!showTab"></i>
                 <i class="fa fa-angle-up pull-right" ng-show="showTab"></i>
                 <ul class="list-group m-t-md" ng-show="showTab">
-                	<li class="list-group-item col-md-12">
-                        <b>{{contract.description}}</b>
+                	<li class="list-group-item col-md-12 capitalize">
+                        <p>{{contract.description}}</p>
                     </li>
                     <li class="list-group-item col-xs-6 col-md-4">
                         <h5>Ministry</h5>
