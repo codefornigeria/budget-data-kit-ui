@@ -51,7 +51,7 @@ angular.module('app.controllers', [])
     $scope.search();
 
     $scope.showResult = function(person) {
-        Restangular.one('person', person.id).get().then(function(response){
+        Restangular.one('person', person._id).get().then(function(response){
             $scope.entity = response;
             console.log($scope.entity.plain());
             $scope.contracts = response.projects;
