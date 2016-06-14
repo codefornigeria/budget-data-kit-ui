@@ -74,6 +74,12 @@
 					<b>District</b>
 					<p>{{person.district.name}}</p>
 				</span>
+
+				<span class="col-md-6 col-xs-6 no-padder">
+					<b>Total Budget</b>
+					<p ng-if="person.totalBudget">{{person.totalBudget}}</p>
+					<p ng-if="!person.totalBudget">Not Available</p>
+				</span>
 			</div>
 		</div>
 	</div>
