@@ -6,8 +6,11 @@ angular.module('app.controllers', [])
     });
  }])
   
-.controller('appCtrl', function($scope, Restangular, $state, $stateParams) {
-	// console.log('Here')
+.controller('appCtrl', function($scope, Restangular, $state, $stateParams, projects, persons) {
+    $scope.projects = projects;
+    $scope.persons = persons
+    $scope.quantity = 3;
+
 	$scope.search = function() {
         if ($scope.searchKeyword){ 
             Restangular.one('search').get({query: $scope.searchKeyword}).then(function(response){
@@ -21,6 +24,29 @@ angular.module('app.controllers', [])
             
             $state.go('results', {query: $scope.searchKeyword})
         }
+    }
+    $scope.showResult = function(person) {
+        Restangular.one('person', person.id).get().then(function(response){
+            $scope.entity = response;
+            console.log($scope.entity.plain());
+            $scope.contracts = response.projects;
+            // console.log($scope.contracts)
+        })
+        $scope.personNode = true;
+    }
+
+    $scope.showProject = function(project) {
+        Restangular.one('project', project.id).get().then(function(response){
+            $scope.entity = response;
+            console.log($scope.entity.plain());
+            // $scope.contracts = response.projects;
+        })
+        $scope.projectNode = true;
+    }
+
+    $scope.close = function() {
+        $scope.personNode = false;
+        $scope.projectNode = false;
     }
 })
 
