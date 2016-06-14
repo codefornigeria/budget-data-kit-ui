@@ -96,6 +96,12 @@
 			</p>
 		</div>
 		<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
+			<b>Total Budget</b>
+			<p ng-if="entity.totalBudget">{{entity.totalBudget}}</p>
+			<p ng-if="!entity.totalBudget">Not Available</p>
+
+		</div>
+		<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
 			<b>Political Party</b>
 			<p ng-if="entity.party">{{entity.party}}</p>
 			<p ng-if="!entity.party">Not Available</p>
@@ -110,11 +116,6 @@
 			<b>District</b>
 			<p ng-if="entity.district.name">{{entity.district.name}}</p>
 			<p ng-if="!entity.district.name">Not Available</p>
-
-		</div>
-		<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
-			<b>Country</b>
-			<p>Nigeria</p>
 
 		</div>
 		<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
