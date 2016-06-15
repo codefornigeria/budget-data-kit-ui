@@ -60,6 +60,9 @@ body {
   font-weight: normal;
   font-size: 10px;
 }
+.card-md h3 {
+  text-transform: capitalize;
+}
 .footer {
   height: 100px;
   line-height: 100px;
