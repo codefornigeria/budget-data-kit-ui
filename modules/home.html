@@ -10,10 +10,10 @@
 		</form>
 	</div>
 </div>
-<div class="container">
+<div class="container min500">
 	<!--Project-->
 	<div class="row padder-top">
-		<span class="col-md-12 text-md text-bold padder-bottom">Projects</span>
+		<span class="col-md-12 text-md text-bold padder-bottom" ng-show="projects">Projects</span>
 		<div class="col-md-4" ng-repeat="project in projects | orderBy:orderProp | limitTo:quantity">
 			<div class="col-md-12 card-md" ng-click="showProject(project)">
 				<span class="col-md-12 no-padder">
@@ -47,7 +47,7 @@
 
 	<!--Senators-->
 	<div class="row padder-top">
-		<span class="col-md-12 text-md text-bold padder-bottom">People</span>
+		<span class="col-md-12 text-md text-bold padder-bottom" ng-show="persons">People</span>
 		<div class="col-md-4" ng-repeat="person in persons | orderBy:orderProp | limitTo:quantity">
 			<div class="col-md-12 card-md" ng-click="showResult(person)">
 				<span class="col-md-12 no-padder">
@@ -56,7 +56,7 @@
 					<hr>
 				</span>
 				
-				<span class="col-md-12 no-padder">
+				<span class="col-md-12 no-padder capitalize">
 					<p>{{person.name}} is a senator of the Federal republic of Nigeria.</p>
 				</span>
 
@@ -203,7 +203,7 @@
 			<b>Country</b>
 			<p>Nigeria</p>
 		</div>
-		<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
+		<div class="cog-xs-6 col-md-4 text-center b-b b-r p-t-sm">
 			<b>State</b>
 			<p ng-if="entity.district.name">{{entity.district.name}}</p>
 			<p ng-if="!entity.district.name">Not Available</p>
@@ -212,6 +212,10 @@
 	</div>
 </div>
 
-<div class="col-md-12 footer text-center">
-	A project by code for Nigeria.
+<div class="footer">
+	<p>Powered by</p>
+	<a href="http://www.codefornigeria.org"><img src="assets/img/cfn_logo.png"></a>
+	<a href="http://www.icfj.org"><img src="assets/img/icfj.png"></a>
+	<a href="http://www.codeforafrica.org"><img src="assets/img/cfafrica.png"></a>
+	<!-- <p class="text-center">A project by code for Nigeria.</p> -->
 </div>
