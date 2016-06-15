@@ -5,7 +5,7 @@
   font-family: 'Open Sans', Helvetica;
 }
 body {
-  background: #F9F9F9;
+  background: #FFF;
 }
 .none {
   display: none;
@@ -16,7 +16,7 @@ body {
   position: relative;
   text-align: center;
   z-index: 1;
-  background-image: linear-gradient(rgba(77, 109, 195, 0.85), rgba(77, 109, 195, 0.85)), url("http://tweet-senate.herokuapp.com/assets/senate-f3c5463087d1661a3938f422cfd2200edbf064d77306e1f8665f71e050a0ffcc.png");
+  background-image: linear-gradient(rgba(51, 105, 232, 0.85), rgba(51, 105, 232, 0.85)), url("http://tweet-senate.herokuapp.com/assets/senate-f3c5463087d1661a3938f422cfd2200edbf064d77306e1f8665f71e050a0ffcc.png");
   background-position: center;
 }
 .hero .header {
@@ -105,7 +105,7 @@ body {
 }
 .search-num {
   max-height: 68px;
-  border-left: 3px solid #2bb8f6;
+  border-left: 3px solid skyblue;
   position: relative;
   padding: 10px 25px 13px 17px;
   background: #fff;
@@ -149,7 +149,7 @@ body {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  border: 2px solid #2bb8f6;
+  border: 2px solid #3369E8;
   margin: 0 auto;
   background: url('../img/a1.jpg');
   background-position: center;
@@ -183,7 +183,7 @@ body {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  border: 2px solid #2bb8f6;
+  border: 2px solid #3369E8;
   margin: 0 auto;
   background: url('../img/a1.jpg');
   background-position: center;
