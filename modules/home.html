@@ -75,9 +75,9 @@
 					<p>{{person.district.name}}</p>
 				</span>
 
-				<span class="col-md-6 col-xs-6 no-padder">
-					<b>Total Budget</b>
-					<p ng-if="person.totalBudget">{{person.totalBudget}}</p>
+				<span class="col-md-6 col-xs-6 no-padder relative">
+					<b class="relative">Total Budget</b>
+					<p ng-if="person.totalBudget">N{{person.totalBudget | number: fractionSize}}</p>
 					<p ng-if="!person.totalBudget">Not Available</p>
 				</span>
 			</div>
@@ -95,11 +95,14 @@
 			<p class="text-justify">Senator of the Federal Republic of Nigeria from Lagos State. He represents Lagos East in the current 7th National Assembly. Senator Ashafa is the Vice-Chairman, Senate Committee on Lands, Housing and Urban Development. He is also a member of the following Senate committees: Environment and Ecology Committee, Committee on Federal Character and Inter-Governmental Relations, Gas Committee, and Senate Services Committee.
 			</p>
 		</div>
-		<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
-			<b>Total Budget</b>
+		<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm relative">
+			<b class="relative">Total Budget <span class="help-badge clickable" ng-click="help = !help">?</span></b>
 			<p ng-if="entity.totalBudget">{{entity.totalBudget}}</p>
 			<p ng-if="!entity.totalBudget">Not Available</p>
 
+			<div class="col-md-12 help-card p-t-sm" ng-show="help">
+				Total bugdet is the sum of the constituency budgets for {{entity.name}}
+			</div>
 		</div>
 		<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
 			<b>Political Party</b>
