@@ -6,9 +6,15 @@ angular.module('app.controllers', [])
     });
  }])
   
-.controller('appCtrl', function($scope, Restangular, $state, $stateParams, projects, persons) {
-    $scope.projects = projects;
-    $scope.persons = persons
+.controller('appCtrl', function($scope, Restangular, $state, $stateParams) {
+    Restangular.all('project').getList().then(function(response){
+        $scope.projects = response;
+    })
+
+    Restangular.all('person').getList().then(function(response){
+        $scope.persons = response;
+    })
+    
     $scope.quantity = 3;
 
 	$scope.search = function() {

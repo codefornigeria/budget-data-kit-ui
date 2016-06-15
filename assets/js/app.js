@@ -24,15 +24,7 @@ angular.module('app', [
       .state('home', {
         url: '',
         templateUrl: 'modules/home.html',
-        controller: 'appCtrl',
-        resolve: {
-            projects: ['Restangular', function(Restangular) {
-                return Restangular.all('project').getList();
-            }],
-            persons: ['Restangular', function(Restangular) {
-                return Restangular.all('person').getList();
-            }]      
-        }
+        controller: 'appCtrl'
     })
       .state('results', {
           url: '/search?query',
