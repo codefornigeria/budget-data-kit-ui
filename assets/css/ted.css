@@ -111,8 +111,16 @@
 	font-size: 18px;
 }
 
+.text-sm {
+	font-size: 12px;
+}
+
 .text-bold {
 	font-weight: 700;
+}
+
+.text-thin {
+	font-weight: 400;
 }
 
 .min500{

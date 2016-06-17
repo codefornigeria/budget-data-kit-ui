@@ -10,9 +10,27 @@ body {
 .none {
   display: none;
 }
+.tool-bar {
+  height: 60px;
+  background: transparent;
+  position: relative;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  line-height: 60px;
+}
+.tool-bar li {
+  list-style: none;
+  float: right;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 2%;
+}
 .hero {
   width: 100%;
-  min-height: 400px;
+  min-height: 500px;
   position: relative;
   text-align: center;
   z-index: 1;
@@ -75,8 +93,13 @@ body {
   padding-right: 10%;
 }
 .footer img {
-  height: 80px;
+  height: 50px;
   margin: 10px;
+}
+.footer hr {
+  border: none;
+  border-top: 1px solid #E5E5E4;
+  opacity: 0.1;
 }
 .navigation {
   width: 100%;
