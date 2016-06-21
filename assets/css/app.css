@@ -11,22 +11,32 @@ body {
   display: none;
 }
 .tool-bar {
-  height: 60px;
+  height: 100px;
   background: transparent;
   position: relative;
   z-index: 999999;
   top: 0;
   left: 0;
-  line-height: 60px;
+  line-height: 100px;
 }
 .tool-bar li {
   list-style: none;
   float: right;
-  color: #fff;
+  color: grey;
   text-transform: uppercase;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 100px;
   margin-left: 2%;
+}
+.tool-bar li:hover {
+  color: #000;
+}
+.tool-bar .divider {
+  height: 40px;
+  width: 1%;
+  margin-top: 30px;
 }
 .hero {
   width: 100%;
@@ -87,7 +97,7 @@ body {
   margin-top: 100px;
   text-transform: capitalize;
   background: #000;
-  color: #fff;
+  color: grey;
   padding: 50px;
   padding-left: 10%;
   padding-right: 10%;
@@ -99,10 +109,16 @@ body {
 .footer hr {
   border: none;
   border-top: 1px solid #E5E5E4;
-  opacity: 0.1;
+  opacity: 0.5;
 }
 .footer div {
+  min-height: 250px;
+}
+.footer .partners {
   min-height: 100px;
+}
+.footer .footer-header {
+  color: #fff;
 }
 .footer .fa-twitter-square {
   color: skyblue;
@@ -111,6 +127,13 @@ body {
 .footer .fa-facebook-square {
   color: blue;
   margin-right: 10px;
+}
+.logo {
+  height: 60px;
+  margin: 10px;
+  margin-top: 20px;
+  margin-left: 0;
+  float: left;
 }
 .navigation {
   width: 100%;
@@ -299,9 +322,4 @@ body {
 }
 .panel-top:hover {
   background: #f5f5f5;
-}
-.logo {
-  height: 50px;
-  margin: 10px;
-  float: left;
 }
