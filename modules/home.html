@@ -109,7 +109,7 @@
 		</div>
 		<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm relative">
 			<b class="relative">Budget In Care <span class="help-badge clickable" ng-click="help = !help">?</span></b>
-			<p ng-if="entity.totalBudget">{{entity.totalBudget | fractionSize}}</p>
+			<p ng-if="entity.totalBudget">{{entity.totalBudget | number: fractionSize}}</p>
 			<p ng-if="!entity.totalBudget">Not Available</p>
 
 			<div class="col-md-12 help-card p-t-sm" ng-show="help">
