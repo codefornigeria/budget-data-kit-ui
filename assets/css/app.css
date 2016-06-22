@@ -147,7 +147,8 @@ a {
   background: #fff;
   padding-left: 5%;
   padding-right: 5%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-top: 1px solid #f3f3f3;
+  border-bottom: 1px solid #f3f3f3;
   position: relative;
 }
 @media all and (min-width: 320px) and (max-width: 640px) {
