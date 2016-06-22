@@ -9,7 +9,7 @@ angular.module('app', [
 
 .config(['$stateProvider', '$urlRouterProvider', 'RestangularProvider',
   function($stateProvider, $urlRouterProvider, RestangularProvider) {
-      RestangularProvider.setBaseUrl('https://sahara-datakit-api.herokuapp.com/');
+      RestangularProvider.setBaseUrl('https://budget-datakit-api.herokuapp.com/');
 
       RestangularProvider.addResponseInterceptor(function (data, operation, what, url, response, deferred) {
           if (data.response && data.response.data) {
