@@ -23,11 +23,17 @@
 	</div>
 </div>
 <div class="container min500">
+	<div class="spinner" ng-if="!projects">
+		<div class="spinner__item1"></div>
+		<div class="spinner__item2"></div>
+		<div class="spinner__item3"></div>
+		<div class="spinner__item4"></div>
+	</div>
 	<!--Project-->
 	<div class="row padder-top">
 		<span class="col-md-12 text-md text-bold padder-bottom" ng-show="projects">Projects</span>
 		<div class="col-md-4" ng-repeat="project in projects | orderBy:orderProp | limitTo:quantity">
-			<div class="col-md-12 card-md" ng-click="showProject(project)">
+			<div class="col-md-12 card-md animated fadeIn" ng-click="showProject(project)">
 				<span class="col-md-12 no-padder">
 					<p class="project-desc">{{project.description}}</p>
 					<hr>

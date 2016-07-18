@@ -197,7 +197,7 @@ h1, h2, h3, h4, h5, h6 {
 .spinner > div {
   width: 16px;
   height: 16px;
-  background-color: #fff;
+  background-color: #000;
   border-radius: 100%;
   display: inline-block;
   animation: sk-bouncedelay 1.7s infinite ease-in-out both;
