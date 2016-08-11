@@ -26,6 +26,10 @@
 	padding: 0;
 }
 
+.no-margin {
+	margin: 0 !important;
+}
+
 .p-t-sm {
 	padding-top: 15px;
 }
@@ -60,6 +64,10 @@
 
 .m-t-md {
 	margin-top: 30px;
+}
+
+.m-l-md {
+	margin-left: 30px !important;
 }
 
 .m-t-xxl {

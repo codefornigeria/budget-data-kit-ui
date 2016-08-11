@@ -5,7 +5,7 @@
 			<a href="http://twitter.com/codefornigeria" target="_blank"><li class="fa fa-twitter"></li></a>
 			<a href="http://facebook.com/codefornigeria" target="_blank"><li class="fa fa-facebook"></li></a>
 			<li class="b-r divider"></li>
-			<a href="mailto:hello@codefornigeria.org?Subject=Hello!" target="_top"><li>Get in touch</li>
+			<a href="mailto:hello@codefornigeria.org?Subject=Hello!" target="_top"><li>Get in touch</li></a>
 			<li>Faqs</li>
 		</div>
 	</div>
@@ -37,6 +37,11 @@
 				<span class="col-md-12 no-padder">
 					<p class="project-desc">{{project.description}}</p>
 					<hr>
+				</span>
+
+				<span class="col-md-6 col-xs-6 no-padder">
+					<b>State</b>
+					<p>{{project.state.name}}</p>
 				</span>
 
 				<span class="col-md-6 col-xs-6 no-padder">
@@ -227,6 +232,9 @@
 			<p ng-if="!entity.district.name">Not Available</p>
 
 		</div>
+		<!-- <canvas id="doughnut" class="chart chart-doughnut"
+			chart-data="data" chart-labels="labels" options="options">
+		</canvas>  -->
 	</div>
 </div>
 
