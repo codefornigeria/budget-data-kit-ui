@@ -4,11 +4,13 @@ angular.module('app', [
     'ngAnimate',
     'restangular',
     'ui.bootstrap',
-    'app.controllers'
+    'app.controllers',
+    'chart.js'
     ])
 
-.config(['$stateProvider', '$urlRouterProvider', 'RestangularProvider',
-  function($stateProvider, $urlRouterProvider, RestangularProvider) {
+.config(['$stateProvider', '$urlRouterProvider', 'RestangularProvider', 'ChartJsProvider',
+  function($stateProvider, $urlRouterProvider, RestangularProvider, ChartJsProvider) {
+      ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
       RestangularProvider.setBaseUrl('https://budget-datakit-api.herokuapp.com/');
 
       RestangularProvider.addResponseInterceptor(function (data, operation, what, url, response, deferred) {
@@ -30,6 +32,11 @@ angular.module('app', [
           url: '/search?query',
           templateUrl: 'modules/search-result.html',
           controller: 'resultCtrl'
+      })  
+      .state('entity', {
+          url: '/entity?query',
+          templateUrl: 'modules/entity.html',
+          controller: 'entityCtrl'
       })  
 
       $urlRouterProvider.otherwise('/404')  

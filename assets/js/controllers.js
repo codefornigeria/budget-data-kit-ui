@@ -14,7 +14,15 @@ angular.module('app.controllers', [])
     Restangular.all('person').getList().then(function(response){
         $scope.persons = response;
     })
-    
+    $scope.options = {
+        tooltipEvents: [],
+        showTooltips: true,
+        tooltipCaretSize: 0,
+        onAnimationComplete: function () {
+            this.showTooltip(this.segments, true);
+        },
+    };
+
     $scope.quantity = 3;
 
 	$scope.search = function() {
@@ -31,21 +39,15 @@ angular.module('app.controllers', [])
             $state.go('results', {query: $scope.searchKeyword})
         }
     }
+
     $scope.showResult = function(person) {
-        Restangular.one('person', person.id).get().then(function(response){
-            $scope.entity = response;
-            console.log($scope.entity.plain());
-            $scope.contracts = response.projects;
-            // console.log($scope.contracts)
-        })
-        $scope.personNode = true;
+        $state.go('entity', {query: person.id})
     }
 
     $scope.showProject = function(project) {
         Restangular.one('project', project.id).get().then(function(response){
             $scope.entity = response;
             console.log($scope.entity.plain());
-            // $scope.contracts = response.projects;
         })
         $scope.projectNode = true;
     }
@@ -70,6 +72,7 @@ angular.module('app.controllers', [])
                 } else {
                     $scope.results = response;
                     $scope.persons = $scope.results.person;
+                    console.log($scope.persons)
                     $scope.projects = $scope.results.project;
                     $scope.total =  parseInt($scope.results.person.length) +  parseInt($scope.results.project.length);
                 }
@@ -83,20 +86,13 @@ angular.module('app.controllers', [])
     $scope.search();
 
     $scope.showResult = function(person) {
-        Restangular.one('person', person.id).get().then(function(response){
-            $scope.entity = response;
-            console.log($scope.entity.plain());
-            $scope.contracts = response.projects;
-            // console.log($scope.contracts)
-        })
-        $scope.personNode = true;
+        $state.go('entity', {query: person.id})
     }
 
     $scope.showProject = function(project) {
         Restangular.one('project', project._id).get().then(function(response){
             $scope.entity = response;
             console.log($scope.entity.plain());
-            // $scope.contracts = response.projects;
         })
         $scope.projectNode = true;
     }
@@ -105,4 +101,25 @@ angular.module('app.controllers', [])
         $scope.personNode = false;
         $scope.projectNode = false;
     }
+})
+
+.controller('entityCtrl', function($scope, Restangular, $state, $stateParams) {
+    $scope.searchKeyword = $stateParams.query;
+
+    $scope.search = function() {
+        if ($scope.searchKeyword){
+            $scope.searching = true;
+            Restangular.one('person', $scope.searchKeyword).get().then(function(response){
+                $scope.searching = false;
+                $scope.entity = response;
+                console.log($scope.entity.plain());
+                $scope.contracts = response.projects;
+             }, function(error){
+                $scope.searching = false;
+                $scope.error = error;
+            });
+        }
+    }
+
+    $scope.search();
 })

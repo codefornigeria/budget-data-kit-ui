@@ -1,0 +1,130 @@
+<nav class="container">
+	<div class="row">
+		<div class="col-md-12 tool-bar no-padder">
+			<a href="http://budget-data-kit.herokuapp.com" target="_blank"><img src="assets/img/logo.png" class="logo"></a>
+			<a href="http://twitter.com/codefornigeria" target="_blank"><li class="fa fa-twitter"></li></a>
+			<a href="http://facebook.com/codefornigeria" target="_blank"><li class="fa fa-facebook"></li></a>
+			<li class="b-r divider"></li>
+			<a href="mailto:hello@codefornigeria.org?Subject=Hello!" target="_top"><li>Get in touch</li></a>
+			<li>Faqs</li>
+		</div>
+	</div>
+</nav>
+<div class="">
+	<div class="overlay" ng-if="searching">
+		<div class="spinner">
+			<div class="spinner__item1"></div>
+		  	<div class="spinner__item2"></div>
+		  	<div class="spinner__item3"></div>
+		  	<div class="spinner__item4"></div>
+		</div>
+	</div>
+	<hr class="no-margin">
+	<!-- <nav class="navigation container">
+		<span class="fa fa-search"></span>
+		<input class="search-box-top col-md-6" ng-model="searchKeyword" type="text"  ng-enter="search()" ng-class="{'empty': !searchKeyword}">
+	</nav> -->
+
+	<div class="container p-t-md">
+		<div class="row padder-top m-t-sm">
+			<div class="col-md-8">
+				<div class="col-md-6 col-sm-6 m-b-md shadow-mobile" ng-repeat="contract in contracts">
+					<div class="col-md-12 card-md">
+						<span class="col-md-12 no-padder">
+							<p>{{contract.description}}</p>
+							<hr>
+						</span>
+
+						<span class="col-md-6 col-xs-6 no-padder">
+							<b>Cost</b>
+							<p ng-if="contract.cost">N{{contract.cost | number: fractionSize}}</p>
+							<p ng-if="!contract.cost">Not Available</p>
+						</span>
+
+						<span class="col-md-6 col-xs-6 no-padder">
+							<b>Ministry</b>
+							<p ng-if="contract.ministry">{{contract.ministry}}</p>
+							<p ng-if="!contract.ministry">Not Available</p>
+						</span>
+
+						<span class="col-md-6 col-xs-6 no-padder">
+							<b>Agency</b>
+							<p ng-if="contract.agency">{{contract.agency}}</p>
+							<p ng-if="!contract.agency">Not Available</p>
+						</span>
+
+						<span class="col-md-6 col-xs-6 no-padder">
+							<b>State</b>
+							<p ng-if="contract.district.name">{{contract.district.name}}</p>
+							<p ng-if="!contract.district.name">Not Available</p>
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4 b-l b-r b-b b-t panel">
+				<div class="col-md-12 bio">
+					<div class="col-md-12 no-padder m-b-sm">
+						<div class="col-md-4 no-padder">
+							<div class="avatar"></div>
+						</div>
+						<div class="col-md-8 no-padder">
+							<h1 class="m-l-md">{{entity.name}}</h1>
+							<span class="m-l-md">{{entity.graphData.description}}</span>
+						</div>
+					</div>
+					<p>{{entity.graphData.detailedDescription.articleBody}}</p>
+				</div>
+				<div class="col-md-12 b-b p-t-sm">
+					<b>Political Party</b>
+					<p ng-if="entity.party">{{entity.party}}</p>
+					<p ng-if="!entity.party">Not Available</p>
+				</div>
+				<div class="col-md-12 b-b p-t-sm">
+					<b>State</b>
+					<p ng-if="entity.state.name">{{entity.state.name}}</p>
+					<p ng-if="!entity.state.name">Not Available</p>
+				</div>
+				<div class="col-md-12 b-b p-t-sm">
+					<b>District</b>
+					<p ng-if="entity.district.name">{{entity.district.name}}</p>
+					<p ng-if="!entity.district.name">Not Available</p>
+				</div>
+				<div class="col-md-12 b-b p-t-sm">
+					<b>Country</b>
+					<p>Nigeria</p>
+				</div>
+				<div class="col-md-12 b-b p-t-sm">
+					<b>Phone Number</b>
+					<p ng-if="entity.phone">(234) {{entity.phone}}</p>
+					<p ng-if="!entity.phone">Not Available</p>
+				</div>
+				<div class="col-md-12 p-t-sm">
+					<b>Email</b>
+					<p ng-if="entity.email">{{entity.email}}</p>
+					<p ng-if="!entity.email">Not Available</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<div class="col-md-8">
+		<p class="footer-header">About</p>
+		<hr>
+		Code for Nigeria is a non-profit civic technology movement. A network of civic-minded volunteers who contribute their talents, skills, expertise, and community knowledge as technological tools to improve public service, bring governments to account, and promote informed (data-driven) decision-making; leveraging open data + media, and backed by a core (full-time) tech team.
+	</div>
+	<div class="col-md-4 p-t">
+		<p class="clickable"><i class="fa fa-facebook-square"></i><a href="http://facebook.com/codefornigeria" target="_blank"> Like us on Facebook</a></p>
+		<p class="clickable"><i class="fa fa-twitter-square"></i><a href="http://twitter.com/codefornigeria" target="_blank"> Follow us on Twitter</a></p>
+	</div>
+	<div class="col-md-12 partners">
+		<p class="footer-header">Built by Code for Nigeria, with thought leadership from</p>
+		<hr>
+		<a href="http://www.icfj.org" target="_blank"><img src="assets/img/icfj.png"></a>
+		<a href="http://www.codeforafrica.org" target="_blank"><img src="assets/img/cfafrica.png"></a>
+	</div>
+	
+	<p class="text-center text-sm text-thin"><a href="https://github.com/codefornigeria/data-kit-ui" target="_blank">Fork this project on Github</a></p>
+</div>

@@ -53,12 +53,12 @@ a {
 .hero .header {
   font-size: 56px;
   font-weight: 900;
-  color: #FFF;
+  color: #FFFFFF;
 }
 .hero .sub-header {
   font-size: 24px;
   font-weight: 300;
-  color: #FFF;
+  color: #FFFFFF;
 }
 .search-box {
   height: ;
@@ -70,10 +70,11 @@ a {
   border: 0;
 }
 .card-md {
-  background: #FFF;
+  background: #FFFFFF;
   border: 1px solid #e8e8e8;
-  height: 300px;
+  height: auto;
   padding-top: 15px;
+  padding-bottom: 15px;
   cursor: pointer;
 }
 .card-md:hover {
@@ -92,6 +93,9 @@ a {
   font-size: 10px;
 }
 .card-md h3 {
+  text-transform: capitalize;
+}
+.card-md p {
   text-transform: capitalize;
 }
 .footer {
@@ -208,41 +212,8 @@ a {
   left: 0;
   z-index: 1000;
 }
-.overlay .panel {
-  height: 100%;
-  background: #fff;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-  margin-top: 100px;
-  overflow: scroll;
-  padding-bottom: 100px;
-}
-.overlay .panel h1 {
-  text-transform: capitalize;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-size: 20px;
-}
-.overlay .panel .avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 2px solid #3369E8;
-  margin: 0 auto;
-  background: url('../img/a1.jpg');
-  background-position: center;
-  background-repeat: none;
-}
-.overlay .panel .bio {
-  height: auto;
-  background: #f5f5f5;
-}
-@media all and (min-width: 320px) and (max-width: 640px) {
-  .overlay .panel {
-    margin-top: 0;
-  }
-}
 .overlay .panel-sm {
-  height: auto%;
+  height: auto;
   background: #fff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   margin-top: 100px;
@@ -250,30 +221,38 @@ a {
   padding-bottom: 100px;
   position: relative;
 }
-.overlay .panel-sm h1 {
-  text-transform: capitalize;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-size: 20px;
+.panel {
+  padding: 0;
 }
-.overlay .panel-sm .avatar {
+.panel .avatar {
   width: 120px;
   height: 120px;
-  border-radius: 50%;
-  border: 2px solid #3369E8;
-  margin: 0 auto;
+  float: left;
   background: url('../img/a1.jpg');
   background-position: center;
   background-repeat: none;
 }
-.overlay .panel-sm .bio {
+.panel .bio {
   height: auto;
   background: #f5f5f5;
+  padding-top: 15px;
 }
 @media all and (min-width: 320px) and (max-width: 640px) {
-  .overlay .panel-sm {
+  .panel .bio {
     margin-top: 0;
   }
+}
+.panel .bio h1 {
+  text-transform: capitalize;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  font-size: 20px;
+  float: left;
+}
+.panel .bio span {
+  float: left;
+  overflow: hidden;
+  height: 50px;
 }
 .overlay-dark {
   background: rgba(0, 0, 0, 0.8);
