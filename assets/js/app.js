@@ -5,11 +5,13 @@ angular.module('app', [
     'restangular',
     'ui.bootstrap',
     'app.controllers',
-    'chart.js'
+    'chart.js',
+    'angularUtils.directives.dirDisqus'
     ])
 
-.config(['$stateProvider', '$urlRouterProvider', 'RestangularProvider', 'ChartJsProvider',
-  function($stateProvider, $urlRouterProvider, RestangularProvider, ChartJsProvider) {
+.config(['$stateProvider', '$urlRouterProvider', 'RestangularProvider', 'ChartJsProvider', '$locationProvider',
+  function($stateProvider, $urlRouterProvider, RestangularProvider, ChartJsProvider, $locationProvider) {
+      $locationProvider.hashPrefix('!');
       ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
       RestangularProvider.setBaseUrl('https://budget-datakit-api.herokuapp.com/');
 

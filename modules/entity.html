@@ -19,16 +19,15 @@
 		  	<div class="spinner__item4"></div>
 		</div>
 	</div>
-	<hr class="no-margin">
-	<!-- <nav class="navigation container">
+	<nav class="navigation container">
 		<span class="fa fa-search"></span>
 		<input class="search-box-top col-md-6" ng-model="searchKeyword" type="text"  ng-enter="search()" ng-class="{'empty': !searchKeyword}">
-	</nav> -->
+	</nav>
 
 	<div class="container p-t-md">
 		<div class="row padder-top m-t-sm">
 			<div class="col-md-8">
-				<div class="col-md-6 col-sm-6 m-b-md shadow-mobile" ng-repeat="contract in contracts">
+				<div class="col-md-6 col-sm-6 m-b-md shadow-mobile entity-card" ng-repeat="contract in contracts">
 					<div class="col-md-12 card-md">
 						<span class="col-md-12 no-padder">
 							<p class="project-desc">{{contract.description}}</p>
@@ -60,6 +59,17 @@
 						</span>
 					</div>
 				</div>
+				<div class="col-md-12 share-profile">
+					<div class="share-wrapper">
+						<a class="black-circle" href="https://twitter.com/intent/tweet?text= {{entity.name}}&url=http://budget-datakit.herokuapp.com/#/entity?query={{entity.id}}" target="_blank">
+							<i class="fa fa-twitter"></i>
+						</a>
+						<!-- <div class="black-circle">
+							<i class="fa fa-facebook"></i>
+						</div> -->
+					</div>
+				</div>
+				<div disqus="id"></div>
 			</div>
 
 			<div class="col-md-4 b-l b-r b-b b-t panel">
@@ -68,9 +78,9 @@
 						<div class="col-md-4 no-padder">
 							<div class="avatar"></div>
 						</div>
-						<div class="col-md-8 no-padder">
-							<h1 class="m-l-md">{{entity.name}}</h1>
-							<span class="m-l-md">{{entity.graphData.description}}</span>
+						<div class="col-md-8 no-padder p-r p-l">
+							<h1 class="col-md-12 no-padder m-l-sm">{{entity.name}}</h1>
+							<span class="col-md-12 no-padder m-l-sm">{{entity.graphData.description}}</span>
 						</div>
 					</div>
 					<p>{{entity.graphData.detailedDescription.articleBody}}</p>
