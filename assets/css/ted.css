@@ -54,6 +54,10 @@
 	padding-right: 30px;
 }
 
+.p-r-sm {
+	padding-right: 15px;
+}
+
 .m-b-sm {
 	margin-bottom: 10px;
 }
@@ -232,4 +236,30 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.0);
     opacity: 1;
   }
+}
+
+.share-profile .black-circle {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: #1DA1F2;
+	display: block;
+	float: left;
+	margin-right: 10px;
+	text-align: center;
+	color: #ffffff;
+	font-size: 18px;
+	padding-top: 12px;
+	cursor: pointer;
+}
+
+.share-profile .black-circle:nth-of-type(2) {
+	background: #3B5998;
+}
+
+.share-profile .share-wrapper {
+	width: 50px;
+	height: 50px;
+	margin: 0 auto;
+
 }

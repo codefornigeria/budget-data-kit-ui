@@ -310,3 +310,10 @@ a {
 .panel-top:hover {
   background: #f5f5f5;
 }
+.entity-card:nth-of-type(odd) {
+  padding-left: 0 !important;
+}
+.entity-card .card-md:hover {
+  box-shadow: none;
+  cursor: default;
+}

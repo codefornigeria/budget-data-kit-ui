@@ -104,14 +104,37 @@ angular.module('app.controllers', [])
 })
 
 .controller('entityCtrl', function($scope, Restangular, $state, $stateParams) {
-    $scope.searchKeyword = $stateParams.query;
+    $scope.searchedEntity = $stateParams.query;
 
     $scope.search = function() {
         if ($scope.searchKeyword){
+            $state.go('results', {query: $scope.searchKeyword})
             $scope.searching = true;
-            Restangular.one('person', $scope.searchKeyword).get().then(function(response){
+            Restangular.one('search').get({query: $scope.searchKeyword}).then(function(response){
+                $scope.searching = false;
+                if (response.person == '' && response.project == '') {
+                    $scope.notFound = true;
+                } else {
+                    $scope.results = response;
+                    $scope.persons = $scope.results.person;
+                    console.log($scope.persons)
+                    $scope.projects = $scope.results.project;
+                    $scope.total =  parseInt($scope.results.person.length) +  parseInt($scope.results.project.length);
+                }
+             }, function(error){
+                $scope.searching = false;
+                $scope.error = error;
+            });
+        }
+    }
+
+    $scope.viewEntity = function() {
+        if ($scope.searchedEntity){
+            $scope.searching = true;
+            Restangular.one('person', $scope.searchedEntity).get().then(function(response){
                 $scope.searching = false;
                 $scope.entity = response;
+                $scope.searchKeyword = response.name;
                 console.log($scope.entity.plain());
                 $scope.contracts = response.projects;
              }, function(error){
@@ -121,5 +144,5 @@ angular.module('app.controllers', [])
         }
     }
 
-    $scope.search();
+    $scope.viewEntity();
 })
