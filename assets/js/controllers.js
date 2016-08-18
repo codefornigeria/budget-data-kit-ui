@@ -111,14 +111,12 @@ angular.module('app.controllers', [])
             $state.go('results', {query: $scope.searchKeyword})
             $scope.searching = true;
             Restangular.one('search').get({query: $scope.searchKeyword}).then(function(response){
-                console.log(response)
                 $scope.searching = false;
                 if (response.person == '' && response.project == '') {
                     $scope.notFound = true;
                 } else {
                     $scope.results = response;
                     $scope.persons = $scope.results.person;
-                    console.log($scope.persons)
                     $scope.projects = $scope.results.project;
                     $scope.total =  parseInt($scope.results.person.length) +  parseInt($scope.results.project.length);
                 }
@@ -136,8 +134,8 @@ angular.module('app.controllers', [])
                 $scope.searching = false;
                 $scope.entity = response;
                 $scope.searchKeyword = response.name;
-                console.log($scope.entity.plain());
                 $scope.contracts = response.projects;
+                $scope.total =  $scope.contracts.length;
              }, function(error){
                 $scope.searching = false;
                 $scope.error = error;
