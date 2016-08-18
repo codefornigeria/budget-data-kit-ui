@@ -228,8 +228,9 @@ a {
   width: 120px;
   height: 120px;
   float: left;
-  background: url('../img/a1.jpg');
+  background: url('../img/mm.jpg');
   background-position: center;
+  background-size: contain;
   background-repeat: none;
 }
 .panel .bio {
