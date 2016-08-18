@@ -19,12 +19,22 @@
 		  	<div class="spinner__item4"></div>
 		</div>
 	</div>
-	<nav class="navigation container">
-		<span class="fa fa-search"></span>
-		<input class="search-box-top col-md-6" ng-model="searchKeyword" type="text"  ng-enter="search()" ng-class="{'empty': !searchKeyword}">
-	</nav>
+
+	<div class="container">
+		<div class="row">
+			<nav class="navigation">
+				<span class="fa fa-search"></span>
+				<input class="search-box-top col-md-12" ng-model="searchKeyword" type="text"  ng-enter="search()" ng-class="{'empty': !searchKeyword}">
+			</nav>
+		</div>
+	</div>
 
 	<div class="container p-t-md">
+		<div class="col-md-12 no-padder m-b-sm">
+			<div class="col-md-2 search-num" ng-show="total">
+				{{total}} results
+			</div>
+		</div>
 		<div class="row padder-top m-t-sm">
 			<div class="col-md-8">
 				<div class="col-md-6 col-sm-6 m-b-md shadow-mobile entity-card" ng-repeat="contract in contracts">
@@ -111,6 +121,11 @@
 				</div>
 				<div class="col-md-12 p-t-sm">
 					<b>Email</b>
+					<p ng-if="entity.email">{{entity.email}}</p>
+					<p ng-if="!entity.email">Not Available</p>
+				</div>
+				<div class="col-md-12 p-t-sm">
+					<b>Total </b>
 					<p ng-if="entity.email">{{entity.email}}</p>
 					<p ng-if="!entity.email">Not Available</p>
 				</div>

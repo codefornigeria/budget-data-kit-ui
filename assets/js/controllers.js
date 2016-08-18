@@ -111,6 +111,7 @@ angular.module('app.controllers', [])
             $state.go('results', {query: $scope.searchKeyword})
             $scope.searching = true;
             Restangular.one('search').get({query: $scope.searchKeyword}).then(function(response){
+                console.log(response)
                 $scope.searching = false;
                 if (response.person == '' && response.project == '') {
                     $scope.notFound = true;
