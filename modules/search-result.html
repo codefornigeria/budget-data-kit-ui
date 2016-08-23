@@ -36,67 +36,8 @@
 		</div>
 
 		<div class="row padder-top m-t-sm animated animate-slow fadeInUp">
-			<div class="col-md-4 col-sm-6 m-b-md shadow-mobile" ng-repeat="person in persons">
-				<div class="col-md-12 card-md" ng-click="showResult(person)">
-					<span class="col-md-12 no-padder">
-						<h3>{{person.name}}</h3>
-						<hr>
-					</span>
-
-					<span class="col-md-12 no-padder">
-						<p class="project-desc">{{person.graphData}}</p>
-					</span>
-
-					<span class="col-md-6 col-xs-6 no-padder">
-						<b>Political party</b>
-						<p>APC</p>
-					</span>
-
-					<span class="col-md-6 col-xs-6 no-padder">
-						<b>State</b>
-						<p>{{person.state.name}}</p>	
-					</span>
-
-					<span class="col-md-6 col-xs-6 no-padder">
-						<b>District</b>
-						<p>{{person.district.name}}</p>
-					</span>
-				</div>
-			</div>
-
-			<div class="col-md-4 col-sm-6 m-b-md" ng-repeat="project in projects">
-				<div class="col-md-12 card-md" ng-click="showProject(project)">
-					<span class="col-md-12 no-padder">
-						<p class="project-desc">{{project.description}}</p>
-						<hr>
-					</span>
-
-					<span class="col-md-6 col-xs-6 no-padder">
-						<b>Handler</b>
-						<p>{{project.person.name}}</p>
-					</span>
-					
-					<span class="col-md-6 col-xs-6 no-padder">
-						<b>Agency</b>
-						<p>{{project.agency}}</p>
-					</span>
-
-					<span class="col-md-6 col-xs-6 no-padder">
-						<b>Budget</b>
-						<p>N{{project.cost | number : fractionSize}}</p>
-					</span>
-
-					<span class="col-md-6 col-xs-6 no-padder">
-						<b>State</b>
-						<p>{{project.state.name}}</p>
-					</span>
-
-					<span class="col-md-6 col-xs-6 no-padder">
-						<b>Ministry</b>
-						<p>{{project.ministry}}</p>
-					</span>	
-				</div>
-			</div>
+			<person-card></person-card>
+			<project-card></project-card>
 		</div>
 	</div>
 </div>

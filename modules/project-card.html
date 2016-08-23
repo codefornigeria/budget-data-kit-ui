@@ -1,0 +1,33 @@
+<div class="col-md-4 col-sm-6 m-b-md" ng-repeat="project in projects">
+	<div class="col-md-12 card-md" ng-click="showProject(project)">
+		<span class="col-md-12 no-padder">
+			<p class="project-desc">{{project.description}}</p>
+			<hr>
+		</span>
+
+		<span class="col-md-6 col-xs-6 no-padder">
+			<b>Handler</b>
+			<p>{{project.person.name}}</p>
+		</span>
+		
+		<span class="col-md-6 col-xs-6 no-padder">
+			<b>Agency</b>
+			<p>{{project.agency}}</p>
+		</span>
+
+		<span class="col-md-6 col-xs-6 no-padder">
+			<b>Budget</b>
+			<p>N{{project.cost | number : fractionSize}}</p>
+		</span>
+
+		<span class="col-md-6 col-xs-6 no-padder">
+			<b>State</b>
+			<p>{{project.state.name}}</p>
+		</span>
+
+		<span class="col-md-6 col-xs-6 no-padder">
+			<b>Ministry</b>
+			<p>{{project.ministry}}</p>
+		</span>	
+	</div>
+</div>
