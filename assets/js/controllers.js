@@ -131,6 +131,7 @@ angular.module('app.controllers', [])
         if ($scope.searchedEntity){
             $scope.searching = true;
             Restangular.one('person', $scope.searchedEntity).get().then(function(response){
+                console.log(response.plain());
                 $scope.searching = false;
                 $scope.entity = response;
                 $scope.searchKeyword = response.name;

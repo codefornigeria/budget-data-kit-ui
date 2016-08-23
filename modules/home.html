@@ -33,7 +33,7 @@
 	<div class="row padder-top">
 		<span class="col-md-12 text-md text-bold padder-bottom" ng-show="projects">Projects</span>
 		<div class="col-md-4" ng-repeat="project in projects | orderBy:orderProp | limitTo:quantity">
-			<div class="col-md-12 card-md animated fadeIn" ng-click="showProject(project)">
+			<div class="col-md-12 card-md animated fadeIn">
 				<span class="col-md-12 no-padder">
 					<p class="project-desc">{{project.description}}</p>
 					<hr>

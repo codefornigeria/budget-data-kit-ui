@@ -1,5 +1,5 @@
 
-// @import url(https://fonts.googleapis.com/css?family=Lato:400,900,300,100);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,900,300,100);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300);
 
 * {
@@ -171,6 +171,7 @@ a {
 		margin: 10px;
 	}
 
+
 	hr {
 		border: none;
 		border-top: 1px solid #E5E5E4;
@@ -204,7 +205,7 @@ a {
 	}
 }
 .logo {
-	height: 60px;
+	height: 50px;
 	margin: 10px;
 	margin-top: 20px;
 	margin-left: 0;
@@ -277,9 +278,8 @@ a {
 
 .overlay {
 	.square(100%);
-	background: rgba(43,184,246,0.9);
+	background: rgba(255,255,255,0.9);
 	.fixed;
-	// .none;
 	top: 0;
 	left: 0;
 	z-index: 1000;
@@ -413,3 +413,26 @@ a {
 		}
 	}
 }	
+
+.min500 {
+	min-height: 500px;
+}
+
+.share-profile {
+	height: 50px;
+
+	.black-circle {
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		background: #333333;
+		display: block;
+		float: left;
+		margin-right: 10px;
+		text-align: center;
+		color: #ffffff;
+		font-size: 18px;
+		padding-top: 12px;
+		cursor: pointer;
+	}
+}
