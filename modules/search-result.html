@@ -1,30 +1,19 @@
-<nav class="container">
-	<div class="row">
-		<div class="col-md-12 tool-bar no-padder">
-			<a href="https://budget-datakit.herokuapp.com/"><img src="assets/img/logo.png" class="logo"></a>
-			<a href="https://twitter.com/codefornigeria" target="_blank"><li class="fa fa-twitter"></li></a>
-			<a href="https://facebook.com/codefornigeria" target="_blank"><li class="fa fa-facebook"></li></a>
-			<li class="b-r divider"></li>
-			<a href="mailto:hello@codefornigeria.org?Subject=Hello!" target="_top"><li>Get in touch</li></a>
-			<li>Faqs</li>
-		</div>
-	</div>
-</nav>
 <div class="">
-	<div class="overlay" ng-if="searching">
-		<div class="spinner">
-			<div class="spinner__item1"></div>
-		  	<div class="spinner__item2"></div>
-		  	<div class="spinner__item3"></div>
-		  	<div class="spinner__item4"></div>
+	<loader></loader>
+
+	<div class="search-bar-wrapper">
+		<div class="container">
+			<div class="row">
+				<nav class="search-bar">
+					<span class="fa fa-search"></span>
+					<input class="search-box-top col-md-12" ng-model="searchKeyword" type="text"  ng-enter="search()" ng-class="{'empty': !searchKeyword}">
+				</nav>
+			</div>
 		</div>
 	</div>
-	<nav class="navigation container">
-		<span class="fa fa-search"></span>
-		<input class="search-box-top col-md-6" ng-model="searchKeyword" type="text"  ng-enter="search()" ng-class="{'empty': !searchKeyword}">
-	</nav>
+	
 
-	<div class="container p-t-md">
+	<div class="container p-t-md min500">
 		<div class="col-md-12 no-padder m-b-sm">
 			<div class="col-md-2 search-num" ng-show="total">
 				{{total}} results
@@ -38,67 +27,8 @@
 		</div>
 
 		<div class="row padder-top m-t-sm animated animate-slow fadeInUp">
-			<div class="col-md-4 col-sm-6 m-b-md shadow-mobile" ng-repeat="person in persons">
-				<div class="col-md-12 card-md" ng-click="showResult(person)">
-					<span class="col-md-12 no-padder">
-						<h3>{{person.name}}</h3>
-						<hr>
-					</span>
-
-					<span class="col-md-12 no-padder">
-						<p class="project-desc">{{person.graphData}}</p>
-					</span>
-
-					<span class="col-md-6 col-xs-6 no-padder">
-						<b>Political party</b>
-						<p>APC</p>
-					</span>
-
-					<span class="col-md-6 col-xs-6 no-padder">
-						<b>State</b>
-						<p>{{person.state.name}}</p>	
-					</span>
-
-					<span class="col-md-6 col-xs-6 no-padder">
-						<b>District</b>
-						<p>{{person.district.name}}</p>
-					</span>
-				</div>
-			</div>
-
-			<div class="col-md-4 col-sm-6 m-b-md" ng-repeat="project in projects">
-				<div class="col-md-12 card-md" ng-click="showProject(project)">
-					<span class="col-md-12 no-padder">
-						<p class="project-desc">{{project.description}}</p>
-						<hr>
-					</span>
-
-					<span class="col-md-6 col-xs-6 no-padder">
-						<b>Handler</b>
-						<p>{{project.person.name}}</p>
-					</span>
-					
-					<span class="col-md-6 col-xs-6 no-padder">
-						<b>Agency</b>
-						<p>{{project.agency}}</p>
-					</span>
-
-					<span class="col-md-6 col-xs-6 no-padder">
-						<b>Budget</b>
-						<p>N{{project.cost | number : fractionSize}}</p>
-					</span>
-
-					<span class="col-md-6 col-xs-6 no-padder">
-						<b>State</b>
-						<p>{{project.state.name}}</p>
-					</span>
-
-					<span class="col-md-6 col-xs-6 no-padder">
-						<b>Ministry</b>
-						<p>{{project.ministry}}</p>
-					</span>	
-				</div>
-			</div>
+			<person-card></person-card> 
+			<project-card></project-card>
 		</div>
 	</div>
 </div>

@@ -1,31 +1,22 @@
-<nav class="container">
-	<div class="row">
-		<div class="col-md-12 tool-bar no-padder">
-			<a href="http://budget-data-kit.herokuapp.com" target="_blank"><img src="assets/img/logo.png" class="logo"></a>
-			<a href="http://twitter.com/codefornigeria" target="_blank"><li class="fa fa-twitter"></li></a>
-			<a href="http://facebook.com/codefornigeria" target="_blank"><li class="fa fa-facebook"></li></a>
-			<li class="b-r divider"></li>
-			<a href="mailto:hello@codefornigeria.org?Subject=Hello!" target="_top"><li>Get in touch</li></a>
-			<li>Faqs</li>
-		</div>
-	</div>
-</nav>
 <div class="">
-	<div class="overlay" ng-if="searching">
-		<div class="spinner">
-			<div class="spinner__item1"></div>
-		  	<div class="spinner__item2"></div>
-		  	<div class="spinner__item3"></div>
-		  	<div class="spinner__item4"></div>
+	<loader></loader>
+
+	<div class="container">
+		<div class="row">
+			<nav class="search-bar">
+				<span class="fa fa-search"></span>
+				<input class="search-box-top col-md-12" ng-model="searchKeyword" type="text"  ng-enter="search()" ng-class="{'empty': !searchKeyword}">
+			</nav>
 		</div>
 	</div>
-	<nav class="navigation container">
-		<span class="fa fa-search"></span>
-		<input class="search-box-top col-md-6" ng-model="searchKeyword" type="text"  ng-enter="search()" ng-class="{'empty': !searchKeyword}">
-	</nav>
 
-	<div class="container p-t-md">
-		<div class="row padder-top m-t-sm">
+	<div class="container p-t-md min500">
+		<div class="col-md-12 no-padder m-b-sm">
+			<div class="col-md-2 search-num" ng-show="total">
+				{{total}} projects
+			</div>
+		</div>
+		<div class="row padder-top m-t-sm"   ng-if="entity">
 			<div class="col-md-8">
 				<div class="col-md-6 col-sm-6 m-b-md shadow-mobile entity-card" ng-repeat="contract in contracts">
 					<div class="col-md-12 card-md">
@@ -57,16 +48,6 @@
 							<p ng-if="contract.district.name">{{contract.district.name}}</p>
 							<p ng-if="!contract.district.name">Not Available</p>
 						</span>
-					</div>
-				</div>
-				<div class="col-md-12 share-profile">
-					<div class="share-wrapper">
-						<a class="black-circle" href="https://twitter.com/intent/tweet?text= {{entity.name}}&url=http://budget-datakit.herokuapp.com/#/entity?query={{entity.id}}" target="_blank">
-							<i class="fa fa-twitter"></i>
-						</a>
-						<!-- <div class="black-circle">
-							<i class="fa fa-facebook"></i>
-						</div> -->
 					</div>
 				</div>
 				<div disqus="id"></div>
@@ -114,6 +95,22 @@
 					<p ng-if="entity.email">{{entity.email}}</p>
 					<p ng-if="!entity.email">Not Available</p>
 				</div>
+				<div class="col-md-12 p-t-sm">
+					<b>Total Budget</b>
+					<p ng-if="entity.email">{{entity.email}}</p>
+					<p ng-if="!entity.email">Not Available</p>
+				</div>
+			</div>
+		</div>
+		<h3 class="text-md m-b-lg m-t-lg text-center" ng-if="entity">Found this useful? Share with others.</h3>
+		<div class="row" ng-if="entity">
+			<div class="col-md-2 col-md-offset-5 share-profile">
+				<a class="black-circle" href="https://twitter.com/intent/tweet?text= {{entity.name}}&url=http://budget-datakit.herokuapp.com/#/entity?query={{entity.id}}" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+				<a class="black-circle" href="" target="_blank">
+					<i class="fa fa-facebook"></i>
+				</a>
 			</div>
 		</div>
 	</div>

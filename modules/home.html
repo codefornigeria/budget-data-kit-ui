@@ -1,15 +1,3 @@
-<nav class="container">
-	<div class="row">
-		<div class="col-md-12 tool-bar no-padder">
-			<a href="http://www.codefornigeria.org" target="_blank"><img src="assets/img/logo.png" class="logo"></a>
-			<a href="http://twitter.com/codefornigeria" target="_blank"><li class="fa fa-twitter"></li></a>
-			<a href="http://facebook.com/codefornigeria" target="_blank"><li class="fa fa-facebook"></li></a>
-			<li class="b-r divider"></li>
-			<a href="mailto:hello@codefornigeria.org?Subject=Hello!" target="_top"><li>Get in touch</li></a>
-			<li>Faqs</li>
-		</div>
-	</div>
-</nav>
 <div class="hero">
 	<div class="col-md-6 col-md-offset-3 p-t-lg text-center">
 		<p class="header">Budget Data Kit</p>
@@ -33,7 +21,7 @@
 	<div class="row padder-top">
 		<span class="col-md-12 text-md text-bold padder-bottom" ng-show="projects">Projects</span>
 		<div class="col-md-4" ng-repeat="project in projects | orderBy:orderProp | limitTo:quantity">
-			<div class="col-md-12 card-md animated fadeIn" ng-click="showProject(project)">
+			<div class="col-md-12 card-md animated fadeIn">
 				<span class="col-md-12 no-padder">
 					<p class="project-desc">{{project.description}}</p>
 					<hr>
