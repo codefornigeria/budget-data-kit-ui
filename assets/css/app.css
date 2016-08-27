@@ -77,7 +77,6 @@ a {
   min-height: 300px;
   padding-top: 15px;
   padding-bottom: 15px;
-  cursor: pointer;
 }
 .card-md:hover {
   box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.15);
@@ -326,7 +325,6 @@ a {
 }
 .entity-card .card-md:hover {
   box-shadow: none;
-  cursor: default;
 }
 .min500 {
   min-height: 500px;
@@ -347,4 +345,12 @@ a {
   font-size: 18px;
   padding-top: 12px;
   cursor: pointer;
+}
+.comparison-container {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  background: rgba(255, 255, 255, 0.9);
 }

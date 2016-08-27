@@ -131,7 +131,6 @@ angular.module('app.controllers', [])
         if ($scope.searchedEntity){
             $scope.searching = true;
             Restangular.one('person', $scope.searchedEntity).get().then(function(response){
-                console.log(response.plain());
                 $scope.searching = false;
                 $scope.entity = response;
                 $scope.searchKeyword = response.name;
@@ -140,9 +139,27 @@ angular.module('app.controllers', [])
              }, function(error){
                 $scope.searching = false;
                 $scope.error = error;
+                console.log(error)
             });
         }
     }
 
     $scope.viewEntity();
+
+
+    $scope.compare = function (contract) {
+        $scope.searching = true;
+        Restangular.one('project', contract.id).get()
+            .then(function (response) {
+                $scope.searching = false;
+                $scope.showComparison = true;
+                $scope.similarProjects = response.relatedProjects;
+                console.log($scope.similarProjects)
+
+        })        
+    }
+
+    $scope.closeComparison = function () {
+        $scope.showComparison = false;
+    }
 })

@@ -16,7 +16,7 @@
 				{{total}} projects
 			</div>
 		</div>
-		<div class="row padder-top m-t-sm"   ng-if="entity">
+		<div class="row padder-top m-t-sm rel"   ng-if="entity">
 			<div class="col-md-8">
 				<div class="col-md-6 col-sm-6 m-b-md shadow-mobile entity-card" ng-repeat="contract in contracts">
 					<div class="col-md-12 card-md">
@@ -48,9 +48,12 @@
 							<p ng-if="contract.district.name">{{contract.district.name}}</p>
 							<p ng-if="!contract.district.name">Not Available</p>
 						</span>
+
+						<span class="col-md-12 no-padder clickable text-center m-t-lg" ng-click="compare(contract)">
+							SEE SIMILAR PROJECTS
+						</span>
 					</div>
 				</div>
-				<div disqus="id"></div>
 			</div>
 
 			<div class="col-md-4 b-l b-r b-b b-t panel">
@@ -99,6 +102,51 @@
 					<b>Total Budget</b>
 					<p ng-if="entity.email">{{entity.email}}</p>
 					<p ng-if="!entity.email">Not Available</p>
+				</div>
+			</div>
+
+			<!--See similar projects-->
+			<div class="comparison-container col-md-12" ng-if="showComparison">
+				<div class="col-md-12">
+					<h3 class="m-b-sm left">Similar projects</H3>
+					<h5 class="right clickable" ng-click="closeComparison()"><i class="fa fa-arrow-left"></i> Go back</h5>
+				</div>
+				<div class="col-md-4 col-sm-6 m-b-md shadow-mobile entity-card" ng-repeat="contract in similarProjects">
+					<div class="col-md-12 card-md">
+						<span class="col-md-12 no-padder">
+							<p class="project-desc">{{contract.description}}</p>
+							<hr>
+						</span>
+
+						<span class="col-md-6 col-xs-6 no-padder">
+							<b>Cost</b>
+							<p ng-if="contract.cost">N{{contract.cost | number: fractionSize}}</p>
+							<p ng-if="!contract.cost">Not Available</p>
+						</span>
+
+						<span class="col-md-6 col-xs-6 no-padder">
+							<b>Ministry</b>
+							<p ng-if="contract.ministry">{{contract.ministry}}</p>
+							<p ng-if="!contract.ministry">Not Available</p>
+						</span>
+
+						<span class="col-md-6 col-xs-6 no-padder">
+							<b>Agency</b>
+							<p ng-if="contract.agency">{{contract.agency}}</p>
+							<p ng-if="!contract.agency">Not Available</p>
+						</span>
+
+						<span class="col-md-6 col-xs-6 no-padder">
+							<b>State</b>
+							<p ng-if="contract.district.name">{{contract.district.name}}</p>
+							<p ng-if="!contract.district.name">Not Available</p>
+						</span>
+					</div>
+				</div>
+				<div class="not-found col-md-4 col-md-offset-4 text-center m-t-md" ng-if="notFound">
+					<img src="assets/img/ghost.png">
+					<h1>oops!</h1>
+					<p>We couldn't find similar projects.</p>
 				</div>
 			</div>
 		</div>
