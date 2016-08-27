@@ -144,6 +144,10 @@
 	font-weight: 700;
 }
 
+.lowercase {
+	text-transform: lowercase !important;
+}
+
 .text-thin {
 	font-weight: 400;
 }
@@ -171,6 +175,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .right {
 	float: right;
+}
+
+.left {
+	float: left;
 }
 
 .capitalize {
@@ -245,4 +253,8 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.0);
     opacity: 1;
   }
+}
+
+.rel {
+	position: relative;
 }
