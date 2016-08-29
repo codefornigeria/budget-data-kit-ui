@@ -148,24 +148,32 @@ angular.module('app.controllers', [])
 
 
     $scope.compare = function (contract) {
+        $scope.compareProjects = true;
+        $scope.contract = contract;    
+    }
+
+    $scope.compareProject = function () {
+        $scope.closeModal();
         $scope.searching = true;
-        Restangular.one('project', contract.id).get()
+        Restangular.one('project', $scope.contract.id).get({category: $scope.category})
             .then(function (response) {
                 $scope.searching = false;
                 $scope.showComparison = true;
                 $scope.similarProjects = response.relatedProjects;
                 console.log($scope.similarProjects)
-
-        })        
+        })    
     }
 
     $scope.closeComparison = function () {
         $scope.showComparison = false;
     }
+    $scope.closeModal = function () {
+        $scope.compareProjects = false;
+    }
 })
 
 .controller('compareCtrl', function ($scope, Restangular, $state, $stateParams) { 
-    Restangular.one('project').get({query: matched = false}).then(function(response) {
+    Restangular.one('project').get({matched: false}).then(function(response) {
         $scope.projects = response;
     })
 

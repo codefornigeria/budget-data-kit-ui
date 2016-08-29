@@ -1,5 +1,25 @@
 <div class="">
 	<loader></loader>
+	<div class="overlay overlay-dark" ng-show="compareProjects">
+		<div class="col-md-4 col-md-offset-4 panel">
+			<form name="category">
+				<div class="form-group animated fadeIn">
+					<label>Category</label>
+					<select class="form-control" ng-model="category" required>
+						<option value="Education">Education</option>
+						<option value="Power">Power</option>
+						<option value="Water">Water</option>
+						<option value="Health">Health</option>
+						<option value="Agriculture">Agriculture</option>
+						<option value="Transportation">Transportation</option>
+					</select>
+				</div>
+				<button type="submit" class="btn btn-sm btn-default" ng-click="closeModal()">Cancel</button>
+				<button type="submit" class="btn btn-sm btn-success right" ng-disabled="category.$invalid" ng-click="compareProject(contract)">Compare</button>
+			</form>
+		</div>
+		
+	</div>
 
 	<div class="container">
 		<div class="row">
