@@ -50,7 +50,7 @@
 						</span>
 
 						<span class="col-md-12 no-padder clickable text-center m-t-lg text-sm" ng-click="compare(contract)">
-							SEE SIMILAR PROJECTS
+							COMPARE SIMILAR PROJECTS
 						</span>
 					</div>
 				</div>
@@ -81,7 +81,7 @@
 				</div>
 				<div class="col-md-12 b-b p-t-sm">
 					<b>District</b>
-					<p ng-if="entity.district.name">{{entity.district.name}}</p>
+					<p ng-if="entity.district.name" class="capitalize">{{entity.district.name}}</p>
 					<p ng-if="!entity.district.name">Not Available</p>
 				</div>
 				<div class="col-md-12 b-b p-t-sm">
@@ -93,7 +93,7 @@
 					<p ng-if="entity.phone">(234) {{entity.phone}}</p>
 					<p ng-if="!entity.phone">Not Available</p>
 				</div>
-				<div class="col-md-12 p-t-sm">
+				<div class="col-md-12 b-b p-t-sm">
 					<b>Email</b>
 					<p ng-if="entity.email">{{entity.email}}</p>
 					<p ng-if="!entity.email">Not Available</p>
@@ -111,7 +111,7 @@
 					<h3 class="m-b-sm left">Similar projects</H3>
 					<h5 class="right clickable" ng-click="closeComparison()"><i class="fa fa-arrow-left"></i> Go back</h5>
 				</div>
-				<div class="col-md-4 col-sm-6 m-b-md shadow-mobile entity-card" ng-repeat="contract in similarProjects">
+				<div class="col-md-4 col-sm-6 m-b-md shadow-mobile" ng-repeat="contract in similarProjects">
 					<div class="col-md-12 card-md">
 						<span class="col-md-12 no-padder">
 							<p class="project-desc">{{contract.description}}</p>
@@ -138,7 +138,7 @@
 
 						<span class="col-md-6 col-xs-6 no-padder">
 							<b>State</b>
-							<p ng-if="contract.district.name">{{contract.district.name}}</p>
+							<p ng-if="contract.district.name" class="capitalize">{{contract.district.name}}</p>
 							<p ng-if="!contract.district.name">Not Available</p>
 						</span>
 					</div>

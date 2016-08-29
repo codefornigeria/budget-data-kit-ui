@@ -1,0 +1,31 @@
+<section class="full-bg">
+	<div class="container">
+		<div class="row animated fadeIn">
+			<h1>Match projects to persons</h1>
+			<div class="col-md-4 col-md-offset-4 panel">
+				<form name="matchProjects">
+					<div class="form-group">
+						<label>Project</label>
+						<select class="form-control" ng-options="project.description for project in projects track by project.id" ng-model="match.project" ng-change="selectProject()" required></select>
+					</div>
+					<div class="form-group animated fadeIn" ng-show="match.project">
+						<label>Person</label>
+						<select class="form-control" ng-options="person.name for person in persons track by person.id" ng-model="match.person" required></select>
+					</div>
+					<div class="form-group animated fadeIn" ng-show="match.project">
+						<label>Category</label>
+						<select class="form-control" ng-model="match.category" required>
+							<option value="Education">Education</option>
+							<option value="Power">Power</option>
+							<option value="Water">Water</option>
+							<option value="Health">Health</option>
+							<option value="Agriculture">Agriculture</option>
+							<option value="Transportation">Transportation</option>
+						</select>
+					</div>
+					<button type="submit" class="btn btn-success animated fadeIn" ng-show="match.project" ng-disabled="matchProjects.$invalid" ng-click="matchProject()">Match</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
