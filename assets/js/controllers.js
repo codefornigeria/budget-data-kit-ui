@@ -163,3 +163,27 @@ angular.module('app.controllers', [])
         $scope.showComparison = false;
     }
 })
+
+.controller('compareCtrl', function ($scope, Restangular, $state, $stateParams) { 
+    Restangular.one('project').get({query: matched = false}).then(function(response) {
+        $scope.projects = response;
+    })
+
+    $scope.selectProject = function () {
+        $scope.project = $scope.match.project.district.state.id;
+        Restangular.one('person').get({state: $scope.project}).then(function (response) {
+            $scope.persons = response;
+        }, function(error){
+        })
+    }
+
+    $scope.matchProject = function () {
+        $scope.match.project = $scope.match.project.id;
+        $scope.match.person = $scope.match.person.id;
+        // console.log($scope.match)
+        Restangular.all('match-project').post($scope.match).then(function (response) {
+            console.log('matched')
+            $state.reload();
+        })
+    }
+})
