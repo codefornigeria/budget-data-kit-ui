@@ -3,8 +3,12 @@
 	<div class="overlay overlay-dark" ng-show="compareProjects">
 		<div class="col-md-4 col-md-offset-4 panel">
 			<form name="category">
+				<div class="form-group">
+					<label>How many projects?</label>
+					<input type="number" class="form-control custom" ng-model="amount">
+				</div>
 				<div class="form-group animated fadeIn">
-					<label>Category</label>
+					<label>Select Category</label>
 					<select class="form-control" ng-model="category" required>
 						<option value="Education">Education</option>
 						<option value="Power">Power</option>
@@ -30,14 +34,14 @@
 		</div>
 	</div>
 
-	<div class="container p-t-md min500">
-		<div class="col-md-12 no-padder m-b-sm">
+	<div class="container p-t-md min500 no-padder">
+		<div class="col-md-12 no-padder m-b-sm" ng-hide="showComparison">
 			<div class="col-md-2 search-num" ng-show="total">
 				{{total}} projects
 			</div>
 		</div>
 		<div class="row padder-top m-t-sm rel"   ng-if="entity">
-			<div class="col-md-8">
+			<div class="col-md-8" ng-hide="showComparison">
 				<div class="col-md-6 col-sm-6 m-b-md shadow-mobile entity-card" ng-repeat="contract in contracts">
 					<div class="col-md-12 card-md">
 						<span class="col-md-12 no-padder">
@@ -70,13 +74,13 @@
 						</span>
 
 						<span class="col-md-12 no-padder clickable text-center m-t-lg text-sm" ng-click="compare(contract)">
-							COMPARE SIMILAR PROJECTS
+							COMPARE WITH OTHER PROJECTS
 						</span>
 					</div>
 				</div>
 			</div>
 
-			<div class="col-md-4 b-l b-r b-b b-t panel">
+			<div class="col-md-4 b-l b-r b-b b-t panel" ng-hide="showComparison">
 				<div class="col-md-12 bio">
 					<div class="col-md-12 no-padder m-b-sm">
 						<div class="col-md-4 no-padder">
@@ -126,11 +130,39 @@
 			</div>
 
 			<!--See similar projects-->
-			<div class="comparison-container col-md-12" ng-if="showComparison">
+			<div class="comparison-container col-md-12 no-padder" ng-if="showComparison">
 				<div class="col-md-12">
-					<h3 class="m-b-sm left">Similar projects</H3>
 					<h5 class="right clickable" ng-click="closeComparison()"><i class="fa fa-arrow-left"></i> Go back</h5>
 				</div>
+				<div class="col-md-12 capitalize font-md">
+					<p>{{contract.description}}</p>
+				</div>
+				<div class="col-md-12 m-b-md b-b">
+					<span class="col-md-2 col-xs-6 no-padder">
+						<b>Cost</b>
+						<p ng-if="contract.cost">N{{contract.cost | number: fractionSize}}</p>
+						<p ng-if="!contract.cost">Not Available</p>
+					</span>
+
+					<span class="col-md-2 col-xs-6 no-padder">
+						<b>Ministry</b>
+						<p ng-if="contract.ministry">{{contract.ministry}}</p>
+						<p ng-if="!contract.ministry">Not Available</p>
+					</span>
+
+					<span class="col-md-2 col-xs-6 no-padder">
+						<b>Agency</b>
+						<p ng-if="contract.agency">{{contract.agency}}</p>
+						<p ng-if="!contract.agency">Not Available</p>
+					</span>
+
+					<span class="col-md-2 col-xs-6 no-padder">
+						<b>State</b>
+						<p ng-if="contract.district.name">{{contract.district.name}}</p>
+						<p ng-if="!contract.district.name">Not Available</p>
+					</span>
+				</div>
+				
 				<div class="col-md-4 col-sm-6 m-b-md shadow-mobile" ng-repeat="contract in similarProjects">
 					<div class="col-md-12 card-md">
 						<span class="col-md-12 no-padder">
