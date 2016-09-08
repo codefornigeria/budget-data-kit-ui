@@ -1,12 +1,12 @@
 
-@import url(https://fonts.googleapis.com/css?family=Lato:400,900,300,100);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300);
-@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700';
+// @import url(https://fonts.googleapis.com/css?family=Lato:400,900,300,100);
+// @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 * {
 	padding: 0;
 	margin: 0;
-	/*font-family: 'Open Sans', Helvetica;*/
+	font-family: 'Montserrat', Helvetica;
 }
 
 body {
@@ -131,8 +131,8 @@ a {
 	padding-bottom: 15px;
 
 	&:hover {
-		box-shadow:0 1px 8px 0 rgba(0,0,0,.15);
-		transition:box-shadow .15s ease-out;
+		box-shadow: 0 1px 8px 0 rgba(0,0,0,.15);
+		transition: box-shadow .15s ease-out;
 	}
 
 	@media @mobile {
@@ -313,7 +313,7 @@ a {
 		width: 120px;
 		height: 120px;
 		float: left;
-		background: url('../img/mm.jpg');
+		background: url('../img/mm.png');
 		background-position: center;
 		background-size: contain;
 		background-repeat: none;
@@ -473,15 +473,6 @@ a {
 	}
 }
 
-.comparison-container {
-	width: 100%;
-	height: auto;
-	min-height: 100%;
-	position: absolute;
-	top: 0;
-	background: rgba(255, 255, 255, 1);
-}
-
 .full-bg {
 	width: 100%;
 	height: calc(~"100vh - 100px");
@@ -517,4 +508,10 @@ a {
 			opacity: 0 !important;
 		}
 	}
+}
+
+.custom {
+	outline: none;
+    box-shadow: none;
+    border: 1px solid #dee5e7;
 }

@@ -13,6 +13,7 @@ angular.module('app.controllers', [])
 
     Restangular.all('person').getList().then(function(response){
         $scope.persons = response;
+        console.log(response.plain())
     })
     $scope.options = {
         tooltipEvents: [],
@@ -155,12 +156,12 @@ angular.module('app.controllers', [])
     $scope.compareProject = function () {
         $scope.closeModal();
         $scope.searching = true;
+        console.log($scope.contract);
         Restangular.one('project', $scope.contract.id).get({category: $scope.category})
             .then(function (response) {
                 $scope.searching = false;
                 $scope.showComparison = true;
                 $scope.similarProjects = response.relatedProjects;
-                console.log($scope.similarProjects)
         })    
     }
 
