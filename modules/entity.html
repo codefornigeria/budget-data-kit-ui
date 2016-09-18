@@ -134,10 +134,10 @@
 				<div class="col-md-12">
 					<h5 class="right clickable" ng-click="closeComparison()"><i class="fa fa-arrow-left"></i> Go back</h5>
 				</div>
-				<div class="col-md-12 capitalize font-md">
-					<p>{{contract.description}}</p>
+				<div class="col-md-12 capitalize font-md m-t-md">
+					<p>The cost of the {{contract.description}}</p>
 				</div>
-				<div class="col-md-12 m-b-md b-b">
+				<div class="col-md-12 m-b-md b-b capitalize">
 					<span class="col-md-2 col-xs-6 no-padder">
 						<b>Cost</b>
 						<p ng-if="contract.cost">N{{contract.cost | number: fractionSize}}</p>
