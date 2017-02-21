@@ -1,0 +1,237 @@
+<div class="">
+	<loader></loader>
+	<div class="overlay overlay-dark" ng-show="compareProjects">
+		<div class="col-md-4 col-md-offset-4 panel">
+			<form name="category">
+				<div class="form-group">
+					<label>How many projects?</label>
+					<input type="number" class="form-control custom" ng-model="amount">
+				</div>
+				<div class="form-group animated fadeIn">
+					<label>Select Category</label>
+					<select class="form-control" ng-model="category" required>
+						<option value="Education">Education</option>
+						<option value="Power">Power</option>
+						<option value="Water">Water</option>
+						<option value="Health">Health</option>
+						<option value="Agriculture">Agriculture</option>
+						<option value="Transportation">Transportation</option>
+					</select>
+				</div>
+				<button type="submit" class="btn btn-sm btn-default" ng-click="closeModal()">Cancel</button>
+				<button type="submit" class="btn btn-sm btn-success right" ng-disabled="category.$invalid" ng-click="compareProject(contract)">Compare</button>
+			</form>
+		</div>
+		
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<nav class="search-bar">
+				<span class="fa fa-search"></span>
+				<input class="search-box-top col-md-12" ng-model="searchKeyword" type="text"  ng-enter="search()" ng-class="{'empty': !searchKeyword}">
+			</nav>
+		</div>
+	</div>
+
+	<div class="container p-t-md min500 no-padder">
+		<div class="col-md-12 no-padder m-b-sm" ng-hide="showComparison">
+			<div class="col-md-2 search-num" ng-show="total">
+				{{total}} projects
+			</div>
+		</div>
+		<div class="row padder-top m-t-sm rel"   ng-if="entity">
+			<div class="col-md-8" ng-hide="showComparison">
+				<div class="col-md-6 col-sm-6 m-b-md shadow-mobile entity-card" ng-repeat="contract in contracts">
+					<div class="col-md-12 card-md">
+						<span class="col-md-12 no-padder">
+							<p class="project-desc">{{contract.description}}</p>
+							<hr>
+						</span>
+
+						<span class="col-md-6 col-xs-6 no-padder">
+							<b>Cost</b>
+							<p ng-if="contract.cost">N{{contract.cost | number: fractionSize}}</p>
+							<p ng-if="!contract.cost">Not Available</p>
+						</span>
+
+						<span class="col-md-6 col-xs-6 no-padder">
+							<b>Ministry</b>
+							<p ng-if="contract.ministry">{{contract.ministry}}</p>
+							<p ng-if="!contract.ministry">Not Available</p>
+						</span>
+
+						<span class="col-md-6 col-xs-6 no-padder">
+							<b>Agency</b>
+							<p ng-if="contract.agency">{{contract.agency}}</p>
+							<p ng-if="!contract.agency">Not Available</p>
+						</span>
+
+						<span class="col-md-6 col-xs-6 no-padder">
+							<b>State</b>
+							<p ng-if="contract.district.name">{{contract.district.name}}</p>
+							<p ng-if="!contract.district.name">Not Available</p>
+						</span>
+
+						<span class="col-md-12 no-padder clickable text-center m-t-lg text-sm" ng-click="compare(contract)">
+							COMPARE WITH OTHER PROJECTS
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4 b-l b-r b-b b-t panel" ng-hide="showComparison">
+				<div class="col-md-12 bio">
+					<div class="col-md-12 no-padder m-b-sm">
+						<div class="col-md-4 no-padder">
+							<div class="avatar"></div>
+						</div>
+						<div class="col-md-8 no-padder p-r p-l">
+							<h1 class="col-md-12 no-padder m-l-sm">{{entity.name}}</h1>
+							<span class="col-md-12 no-padder m-l-sm">{{entity.graphData.description}}</span>
+						</div>
+					</div>
+					<p>{{entity.graphData.detailedDescription.articleBody}}</p>
+				</div>
+				<div class="col-md-12 b-b p-t-sm">
+					<b>Political Party</b>
+					<p ng-if="entity.party">{{entity.party}}</p>
+					<p ng-if="!entity.party">Not Available</p>
+				</div>
+				<div class="col-md-12 b-b p-t-sm">
+					<b>State</b>
+					<p ng-if="entity.state.name">{{entity.state.name}}</p>
+					<p ng-if="!entity.state.name">Not Available</p>
+				</div>
+				<div class="col-md-12 b-b p-t-sm">
+					<b>District</b>
+					<p ng-if="entity.district.name" class="capitalize">{{entity.district.name}}</p>
+					<p ng-if="!entity.district.name">Not Available</p>
+				</div>
+				<div class="col-md-12 b-b p-t-sm">
+					<b>Country</b>
+					<p>Nigeria</p>
+				</div>
+				<div class="col-md-12 b-b p-t-sm">
+					<b>Phone Number</b>
+					<p ng-if="entity.phone">(234) {{entity.phone}}</p>
+					<p ng-if="!entity.phone">Not Available</p>
+				</div>
+				<div class="col-md-12 b-b p-t-sm">
+					<b>Email</b>
+					<p ng-if="entity.email">{{entity.email}}</p>
+					<p ng-if="!entity.email">Not Available</p>
+				</div>
+				<div class="col-md-12 p-t-sm">
+					<b>Total Budget</b>
+					<p ng-if="entity.email">{{entity.email}}</p>
+					<p ng-if="!entity.email">Not Available</p>
+				</div>
+			</div>
+
+			<!--See similar projects-->
+			<div class="comparison-container col-md-12 no-padder" ng-if="showComparison">
+				<div class="col-md-12">
+					<h5 class="right clickable" ng-click="closeComparison()"><i class="fa fa-arrow-left"></i> Go back</h5>
+				</div>
+				<div class="col-md-12 capitalize font-md m-t-md">
+					<p>The cost of the {{contract.description}} will implement the projects below.</p>
+				</div>
+				<div class="col-md-12 m-b-md b-b capitalize">
+					<span class="col-md-2 col-xs-6 no-padder">
+						<b>Cost</b>
+						<p ng-if="contract.cost">N{{contract.cost | number: fractionSize}}</p>
+						<p ng-if="!contract.cost">Not Available</p>
+					</span>
+
+					<span class="col-md-2 col-xs-6 no-padder">
+						<b>Ministry</b>
+						<p ng-if="contract.ministry">{{contract.ministry}}</p>
+						<p ng-if="!contract.ministry">Not Available</p>
+					</span>
+
+					<span class="col-md-2 col-xs-6 no-padder">
+						<b>Agency</b>
+						<p ng-if="contract.agency">{{contract.agency}}</p>
+						<p ng-if="!contract.agency">Not Available</p>
+					</span>
+
+					<span class="col-md-2 col-xs-6 no-padder">
+						<b>State</b>
+						<p ng-if="contract.district.name">{{contract.district.name}}</p>
+						<p ng-if="!contract.district.name">Not Available</p>
+					</span>
+				</div>
+				
+				<div class="col-md-4 col-sm-6 m-b-md shadow-mobile" ng-repeat="contract in similarProjects">
+					<div class="col-md-12 card-md">
+						<span class="col-md-12 no-padder">
+							<p class="project-desc">{{contract.description}}</p>
+							<hr>
+						</span>
+
+						<span class="col-md-6 col-xs-6 no-padder">
+							<b>Cost</b>
+							<p ng-if="contract.cost">N{{contract.cost | number: fractionSize}}</p>
+							<p ng-if="!contract.cost">Not Available</p>
+						</span>
+
+						<span class="col-md-6 col-xs-6 no-padder">
+							<b>Ministry</b>
+							<p ng-if="contract.ministry">{{contract.ministry}}</p>
+							<p ng-if="!contract.ministry">Not Available</p>
+						</span>
+
+						<span class="col-md-6 col-xs-6 no-padder">
+							<b>Agency</b>
+							<p ng-if="contract.agency">{{contract.agency}}</p>
+							<p ng-if="!contract.agency">Not Available</p>
+						</span>
+
+						<span class="col-md-6 col-xs-6 no-padder">
+							<b>State</b>
+							<p ng-if="contract.district.name" class="capitalize">{{contract.district.name}}</p>
+							<p ng-if="!contract.district.name">Not Available</p>
+						</span>
+					</div>
+				</div>
+				<div class="not-found col-md-4 col-md-offset-4 text-center m-t-md" ng-if="notFound">
+					<img src="assets/img/ghost.png">
+					<h1>oops!</h1>
+					<p>We couldn't find similar projects.</p>
+				</div>
+			</div>
+		</div>
+		<h3 class="text-md m-b-lg m-t-lg text-center" ng-if="entity">Found this useful? Share with others.</h3>
+		<div class="row" ng-if="entity">
+			<div class="col-md-2 col-md-offset-5 share-profile">
+				<a class="black-circle" href="https://twitter.com/intent/tweet?text= {{entity.name}}&url=http://budget-datakit.herokuapp.com/#/entity?query={{entity.id}}" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+				<a class="black-circle" href="" target="_blank">
+					<i class="fa fa-facebook"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<div class="col-md-8">
+		<p class="footer-header">About</p>
+		<hr>
+		Code for Nigeria is a non-profit civic technology movement. A network of civic-minded volunteers who contribute their talents, skills, expertise, and community knowledge as technological tools to improve public service, bring governments to account, and promote informed (data-driven) decision-making; leveraging open data + media, and backed by a core (full-time) tech team.
+	</div>
+	<div class="col-md-4 p-t">
+		<p class="clickable"><i class="fa fa-facebook-square"></i><a href="http://facebook.com/codefornigeria" target="_blank"> Like us on Facebook</a></p>
+		<p class="clickable"><i class="fa fa-twitter-square"></i><a href="http://twitter.com/codefornigeria" target="_blank"> Follow us on Twitter</a></p>
+	</div>
+	<div class="col-md-12 partners">
+		<p class="footer-header">Built by Code for Nigeria, with thought leadership from</p>
+		<hr>
+		<a href="http://www.icfj.org" target="_blank"><img src="assets/img/icfj.png"></a>
+		<a href="http://www.codeforafrica.org" target="_blank"><img src="assets/img/cfafrica.png"></a>
+	</div>
+	
+	<p class="text-center text-sm text-thin"><a href="https://github.com/codefornigeria/data-kit-ui" target="_blank">Fork this project on Github</a></p>
+</div>

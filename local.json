@@ -1,0 +1,16 @@
+{
+  "development": {
+    "Config": {
+      "api": "https://sendagora-api.herokuapp.com/",
+      "facebookAppId": "1503484316624984",
+      "googleMapKey": "AIzaSyBpzQ8_m8SrgbbIk0X2o5NVTyg1XdFgSOk"
+    }
+  },
+  "production": {
+    "Config": {
+      "api": "https://api.production.com/",
+      "googleMapKey": "AIzaSyBpzQ8_m8SrgbbIk0X2o5NVTyg1XdFgSOk",
+      "facebookAppId": "1503484316624984"
+    }
+  }
+}

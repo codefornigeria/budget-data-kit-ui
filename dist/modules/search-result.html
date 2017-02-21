@@ -1,0 +1,55 @@
+<div class="">
+	<loader></loader>
+
+	<div class="search-bar-wrapper">
+		<div class="container">
+			<div class="row">
+				<nav class="search-bar">
+					<span class="fa fa-search"></span>
+					<input class="search-box-top col-md-12" ng-model="searchKeyword" type="text"  ng-enter="search()" ng-class="{'empty': !searchKeyword}">
+				</nav>
+			</div>
+		</div>
+	</div>
+	
+
+	<div class="container p-t-md min500">
+		<div class="col-md-12 no-padder m-b-sm">
+			<div class="col-md-2 search-num" ng-show="total">
+				{{total}} results
+			</div>
+		</div>
+
+		<div class="not-found col-md-4 col-md-offset-4 text-center m-t-md" ng-if="notFound">
+			<img src="assets/img/ghost.png">
+			<h1>oops!</h1>
+			<p>We couldn't find what you were looking for.</p>
+		</div>
+
+		<div class="row padder-top m-t-sm animated animate-slow fadeInUp">
+			<person-card></person-card> 
+			<project-card></project-card>
+		</div>
+	</div>
+</div>
+
+<!--Footer-->
+<div class="footer">
+	<div class="col-md-8">
+		<p class="footer-header">About</p>
+		<hr>
+		Code for Nigeria is a non-profit civic technology movement. A network of civic-minded volunteers who contribute their talents, skills, expertise, and community knowledge as technological tools to improve public service, bring governments to account, and promote informed (data-driven) decision-making; leveraging open data + media, and backed by a core (full-time) tech team.
+	</div>
+	<div class="col-md-4 p-t">
+		<p class="clickable"><i class="fa fa-facebook-square"></i><a href="https://facebook.com/codefornigeria" target="_blank"> Like us on Facebook</a></p>
+		<p class="clickable"><i class="fa fa-twitter-square"></i><a href="https://twitter.com/codefornigeria" target="_blank"> Follow us on Twitter</a></p>
+	</div>
+	<div class="col-md-12 partners">
+		<p class="footer-header">Built by Code for Nigeria, with thought leadership from</p>
+		<hr>
+		<a href="http://www.icfj.org" target="_blank"><img src="assets/img/icfj.png"></a>
+		<a href="https://codeforafrica.org/" target="_blank"><img src="assets/img/cfafrica.png"></a>
+	</div>
+	
+	<p class="text-center text-sm text-thin"><a href="https://github.com/codefornigeria/data-kit-ui" target="_blank">Fork this project on Github</a></p>
+</div>

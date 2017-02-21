@@ -1,6 +1,7 @@
 
 angular.module('app', [
     'ui.router',
+    'ngFeathers',
     'ngAnimate',
     'restangular',
     'ui.bootstrap',
@@ -24,7 +25,7 @@ angular.module('app', [
               return data;
           };
       });
-      
+
       $stateProvider
       .state('home', {
         url: '',
@@ -35,7 +36,7 @@ angular.module('app', [
           url: '/search?query',
           templateUrl: 'modules/search-result.html',
           controller: 'resultCtrl'
-      })  
+      })
       .state('entity', {
           url: '/entity?query',
           templateUrl: 'modules/entity.html',
@@ -45,7 +46,7 @@ angular.module('app', [
           url: '/compare',
           templateUrl: 'modules/compare.html',
           controller: 'compareCtrl'
-      })  
+      })
 
-      $urlRouterProvider.otherwise('/404')  
+      $urlRouterProvider.otherwise('/404')
   }])

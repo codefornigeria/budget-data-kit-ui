@@ -1,0 +1,247 @@
+<div class="hero">
+	<div class="col-md-6 col-md-offset-3 p-t-lg text-center">
+		<p class="header">Budget Data Kit</p>
+		<p class="sub-header">See Allocations and Budgets of the Government.</p>
+	</div>
+	<div class="col-md-4 col-md-offset-4 index-5 home-search">
+		<form>
+			<span class="fa fa-search"></span>
+			<input class="col-md-12 search-box" type="text" ng-model="searchKeyword" placeholder="Kaduna, Lagos, Saraki, Tinubu..." ng-enter="search()">
+		</form>
+	</div>
+</div>
+<div class="container min500">
+	<div class="spinner" ng-if="!projects">
+		<div class="spinner__item1"></div>
+		<div class="spinner__item2"></div>
+		<div class="spinner__item3"></div>
+		<div class="spinner__item4"></div>
+	</div>
+	<!--Project-->
+	<div class="row padder-top">
+		<span class="col-md-12 text-md text-bold padder-bottom" ng-show="projects">Projects</span>
+		<div class="col-md-4 clickable" ng-repeat="project in projects | orderBy:orderProp | limitTo:quantity">
+			<div class="col-md-12 card-md animated fadeIn">
+				<span class="col-md-12 no-padder">
+					<p class="project-desc">{{project.description}}</p>
+					<hr>
+				</span>
+
+				<span class="col-md-6 col-xs-6 no-padder">
+					<b>State</b>
+					<p>{{project.state.name}}</p>
+				</span>
+
+				<span class="col-md-6 col-xs-6 no-padder">
+					<b>Agency</b>
+					<p>{{project.agency}}</p>
+				</span>
+
+				<span class="col-md-6 col-xs-6 no-padder">
+					<b>Budget</b>
+					<p>N{{project.cost | number: fractionSize}}</p>
+				</span>
+
+				<span class="col-md-6 col-xs-6 no-padder">
+					<b>Start Date</b>
+					<p>January 2016</p>
+				</span>
+
+				<span class="col-md-6 col-xs-6 no-padder">
+					<b>End Date</b>
+					<p>August 2017</p>
+				</span>	
+			</div>
+		</div>
+	</div>
+	<!--End of projects-->
+
+	<!--Senators-->
+	<div class="row padder-top">
+		<span class="col-md-12 text-md text-bold padder-bottom" ng-show="persons">People</span>
+		<div class="col-md-4 clickable" ng-repeat="person in persons | orderBy:orderProp | limitTo:quantity">
+			<div class="col-md-12 card-md" ng-click="showResult(person)">
+				<span class="col-md-12 no-padder">
+					<h3>{{person.name}}</h3>
+					<h5>Senator</h5>
+					<hr>
+				</span>
+				
+				<span class="col-md-12 no-padder capitalize">
+					<p>{{person.name}} is a senator of the Federal republic of Nigeria.</p>
+				</span>
+
+				<span class="col-md-6 col-xs-6 no-padder">
+					<b>Political party</b>
+					<p></p>
+				</span>
+
+				<span class="col-md-6 col-xs-6 no-padder">
+					<b>State</b>
+					<p>{{person.state.name}}</p>	
+				</span>
+
+				<span class="col-md-6 col-xs-6 no-padder">
+					<b>District</b>
+					<p>{{person.district.name}}</p>
+				</span>
+
+				<span class="col-md-6 col-xs-6 no-padder relative">
+					<b class="relative">Budget In Care</b>
+					<p ng-if="person.totalBudget">N{{person.totalBudget | number: fractionSize}}</p>
+					<p ng-if="!person.totalBudget">Not Available</p>
+				</span>
+			</div>
+		</div>
+	</div>
+	<!--End of projects-->
+</div>
+
+<div class="overlay overlay-dark" ng-show="personNode">
+	<div class="col-md-6 col-md-offset-3 panel animated animate-slow bounceInUp no-padder">
+		<div class="col-md-12 bio padder">
+			<i class="fa fa-close clickable right" ng-click="close()"></i>
+			<div class="avatar"></div>
+			<h1 class="text-center">{{entity.name}}</h1>
+			<p class="text-justify">Senator of the Federal Republic of Nigeria from Lagos State. He represents Lagos East in the current 7th National Assembly. Senator Ashafa is the Vice-Chairman, Senate Committee on Lands, Housing and Urban Development. He is also a member of the following Senate committees: Environment and Ecology Committee, Committee on Federal Character and Inter-Governmental Relations, Gas Committee, and Senate Services Committee.
+			</p>
+		</div>
+		<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm relative">
+			<b class="relative">Budget In Care <span class="help-badge clickable" ng-click="help = !help">?</span></b>
+			<p ng-if="entity.totalBudget">{{entity.totalBudget | number: fractionSize}}</p>
+			<p ng-if="!entity.totalBudget">Not Available</p>
+
+			<div class="col-md-12 help-card p-t-sm" ng-show="help">
+				Total bugdet is the sum of the constituency budgets for {{entity.name}}
+			</div>
+		</div>
+		<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
+			<b>Political Party</b>
+			<p ng-if="entity.party">{{entity.party}}</p>
+			<p ng-if="!entity.party">Not Available</p>
+		</div>
+		<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
+			<b>State</b>
+			<p ng-if="entity.state.name">{{entity.state.name}}</p>
+			<p ng-if="!entity.state.name">Not Available</p>
+
+		</div>
+		<div class="col-xs-6 col-md-4 text-center b-b p-t-sm">
+			<b>District</b>
+			<p ng-if="entity.district.name">{{entity.district.name}}</p>
+			<p ng-if="!entity.district.name">Not Available</p>
+
+		</div>
+		<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
+			<b>Phone Number</b>
+			<p ng-if="entity.phone">(234) {{entity.phone}}</p>
+			<p ng-if="!entity.phone">Not Available</p>
+
+		</div>
+		<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
+			<b>Email</b>
+			<p ng-if="entity.email">{{entity.email}}</p>
+			<p ng-if="!entity.email">Not Available</p>
+		</div>
+
+		<div class="col-md-12 p-l p-r projects-header">
+			<h5 class="text-bold text-uppercase text-center">Projects in {{entity.district.name}}</h5>
+		</div>
+
+		<div class="panel-body clickable col-md-12 panel-top b-b p-r p-l" ng-repeat="contract in contracts" ng-click="showTab = !showTab" ng-class="{'bg-light': showTab}">
+			<div class="truncate pull-left capitalize">{{contract.description}}</div>
+			<i class="fa fa-angle-down pull-right" ng-show="!showTab"></i>
+			<i class="fa fa-angle-up pull-right" ng-show="showTab"></i>
+			<ul class="list-group m-t-md" ng-show="showTab">
+				<li class="list-group-item col-md-12 capitalize">
+					<p>{{contract.description}}</p>
+				</li>
+				<li class="list-group-item col-xs-6 col-md-4">
+					<h5>Ministry</h5>
+					<b>{{contract.ministry}}</b>
+					<b ng-if="!contract.ministry">NA</b>
+				</li>
+
+				<li class="list-group-item col-xs-6 col-md-4">
+					<h5>Agency</h5>
+					<b>{{contract.agency}}</b>
+				</li>
+
+				<li class="list-group-item col-xs-6 col-md-4">
+					<h5>Cost</h5>
+					<b>N{{contract.cost | number: fractionSize}}</b>
+				</li>
+				<li class="list-group-item col-xs-6 col-md-4">
+					<h5>District</h5>
+					<b>{{contract.district.name}}</b>
+				</li>
+				<li class="list-group-item col-xs-6 col-md-4">
+					<h5>State</h5>
+					<b>{{contract.state.name}}</b>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="overlay overlay-dark" ng-show="projectNode">
+	<div class="col-md-6 col-md-offset-3 panel-sm animated animate-slow bounceInUp no-padder">
+		<div class="col-md-12">
+
+		</div>
+		<div class="col-md-12 text-justify bio padder">
+			<i class="fa fa-close clickable right absolute-right" ng-click="close()"></i>
+			{{entity.description}}
+		</div>
+		<div class="col-xs-6 col-md-4 text-center b-b p-t-sm">
+			<b>Cost</b>
+			<p ng-if="entity.cost">N{{entity.cost | number: fractionSize}}</p>
+			<p ng-if="!entity.cost">Not Available</p>
+
+		</div>
+		<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
+			<b>Ministry</b>
+			<p ng-if="entity.ministry">{{entity.ministry}}</p>
+			<p ng-if="!entity.ministry">Not Available</p>
+		</div>
+		<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
+			<b>Agency</b>
+			<p ng-if="entity.agency">{{entity.agency}}</p>
+			<p ng-if="!entity.agency">Not Available</p>
+
+		</div>
+		<div class="col-xs-6 col-md-4 text-center b-b b-r p-t-sm">
+			<b>Country</b>
+			<p>Nigeria</p>
+		</div>
+		<div class="cog-xs-6 col-md-4 text-center b-b b-r p-t-sm">
+			<b>State</b>
+			<p ng-if="entity.district.name">{{entity.district.name}}</p>
+			<p ng-if="!entity.district.name">Not Available</p>
+
+		</div>
+		<!-- <canvas id="doughnut" class="chart chart-doughnut"
+			chart-data="data" chart-labels="labels" options="options">
+		</canvas>  -->
+	</div>
+</div>
+
+<div class="footer">
+	<div class="col-md-8">
+		<p class="footer-header">About</p>
+		<hr>
+		Code for Nigeria is a non-profit civic technology movement. A network of civic-minded volunteers who contribute their talents, skills, expertise, and community knowledge as technological tools to improve public service, bring governments to account, and promote informed (data-driven) decision-making; leveraging open data + media, and backed by a core (full-time) tech team.
+	</div>
+	<div class="col-md-4 p-t">
+		<p class="clickable"><i class="fa fa-facebook-square"></i><a href="http://facebook.com/codefornigeria" target="_blank"> Like us on Facebook</a></p>
+		<p class="clickable"><i class="fa fa-twitter-square"></i><a href="http://twitter.com/codefornigeria" target="_blank"> Follow us on Twitter</a></p>
+	</div>
+	<div class="col-md-12 partners">
+		<p class="footer-header">Built by Code for Nigeria, with thought leadership from</p>
+		<hr>
+		<a href="http://www.icfj.org" target="_blank"><img src="assets/img/icfj.png"></a>
+		<a href="http://www.codeforafrica.org" target="_blank"><img src="assets/img/cfafrica.png"></a>
+	</div>
+	
+	<p class="text-center text-sm text-thin"><a href="https://github.com/codefornigeria/data-kit-ui" target="_blank">Fork this project on Github</a></p>
+</div>
