@@ -104,9 +104,9 @@ gulp.task('link-files', ['copy-images', 'copy-fonts', 'copy-html',  'vendorjs', 
 });
 
 gulp.task('style', ['clean'], function(){
-    return gulp.src(['assets/css/app.less', 'assets/css/ted.css'])
-        .pipe(less().on('error', console.error))
-        .pipe(rename(json.name.toLowerCase() + '.css'))
+    return gulp.src(['assets/css/app.css', 'assets/css/ted.css'])
+
+        .pipe(concat(json.name.toLowerCase() + '.css'))
         .pipe(gulpif(argv.production, cssmin()))
 		.pipe(gulpif(argv.production, purify(['./dist/**/*.js', './dist/**/*.html'])))
         .pipe(gulpif(argv.production, rename({suffix: '.min'})))
