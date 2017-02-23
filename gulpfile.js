@@ -76,7 +76,6 @@ gulp.task('vendorjs', ['clean'], function(){
 gulp.task('vendorcss', ['clean'], function(){
     return gulp
 			.src([
-        'assets/vendor/jquery-2.1.4.min.js',
         'assets/vendor/animate/animate.css',
         'assets/vendor/bootstraps/bootstraps.css',
         'assets/vendor/font-awesome/font-awesome.css',
@@ -89,7 +88,7 @@ gulp.task('vendorcss', ['clean'], function(){
 });
 
 gulp.task('appjsfiles', ['clean'], function(){
-    return gulp.src([ 'assets/js/local.js', 'assets/js/app.js', 'assets/js/*.js', 'modules/**/*.js'])
+    return gulp.src([ 'app/local.js', 'assets/js/app.js', 'assets/js/*.js', 'modules/**/*.js'])
             .pipe(concat(json.name.toLowerCase() + '.js'))
             .pipe(gulpif(argv.production, uglify()))
             .pipe(gulpif(argv.production, rename({suffix: '.min'})))
@@ -120,5 +119,5 @@ gulp.task('logger', function(){
 gulp.task('build', [ 'config', 'style', 'link-files']);
 
 gulp.task('serve', ['connect', 'config', 'style', 'link-files'], function () {
-	return gulp.watch(['app/**/*', 'modules/**/*', 'components/**/*', 'styles/**/*', 'vendor/**/*'], ['logger', 'style', 'link-files']);
+	return gulp.watch(['app/**/*', 'assets/**/*', 'modules/**/*'], ['logger', 'style', 'link-files']);
 });

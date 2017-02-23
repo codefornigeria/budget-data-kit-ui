@@ -17,48 +17,12 @@
 		<div class="spinner__item3"></div>
 		<div class="spinner__item4"></div>
 	</div>
-	<!--Project-->
-	<div class="row padder-top">
-		<span class="col-md-12 text-md text-bold padder-bottom" ng-show="projects">Projects</span>
-		<div class="col-md-4 clickable" ng-repeat="project in projects | orderBy:orderProp | limitTo:quantity">
-			<div class="col-md-12 card-md animated fadeIn">
-				<span class="col-md-12 no-padder">
-					<p class="project-desc">{{project.description}}</p>
-					<hr>
-				</span>
 
-				<span class="col-md-6 col-xs-6 no-padder">
-					<b>State</b>
-					<p>{{project.state.name}}</p>
-				</span>
 
-				<span class="col-md-6 col-xs-6 no-padder">
-					<b>Agency</b>
-					<p>{{project.agency}}</p>
-				</span>
-
-				<span class="col-md-6 col-xs-6 no-padder">
-					<b>Budget</b>
-					<p>N{{project.cost | number: fractionSize}}</p>
-				</span>
-
-				<span class="col-md-6 col-xs-6 no-padder">
-					<b>Start Date</b>
-					<p>January 2016</p>
-				</span>
-
-				<span class="col-md-6 col-xs-6 no-padder">
-					<b>End Date</b>
-					<p>August 2017</p>
-				</span>	
-			</div>
-		</div>
-	</div>
-	<!--End of projects-->
 
 	<!--Senators-->
 	<div class="row padder-top">
-		<span class="col-md-12 text-md text-bold padder-bottom" ng-show="persons">People</span>
+		<span class="col-md-12 text-md text-bold padder-bottom" ng-show="persons">Corruption Schemes</span>
 		<div class="col-md-4 clickable" ng-repeat="person in persons | orderBy:orderProp | limitTo:quantity">
 			<div class="col-md-12 card-md" ng-click="showResult(person)">
 				<span class="col-md-12 no-padder">
@@ -66,7 +30,7 @@
 					<h5>Senator</h5>
 					<hr>
 				</span>
-				
+
 				<span class="col-md-12 no-padder capitalize">
 					<p>{{person.name}} is a senator of the Federal republic of Nigeria.</p>
 				</span>
@@ -78,7 +42,7 @@
 
 				<span class="col-md-6 col-xs-6 no-padder">
 					<b>State</b>
-					<p>{{person.state.name}}</p>	
+					<p>{{person.state.name}}</p>
 				</span>
 
 				<span class="col-md-6 col-xs-6 no-padder">
@@ -239,9 +203,8 @@
 	<div class="col-md-12 partners">
 		<p class="footer-header">Built by Code for Nigeria, with thought leadership from</p>
 		<hr>
-		<a href="http://www.icfj.org" target="_blank"><img src="assets/img/icfj.png"></a>
-		<a href="http://www.codeforafrica.org" target="_blank"><img src="assets/img/cfafrica.png"></a>
+		<a href="https://codefornigeria.io/" target="_blank"><img src="assets/img/cfnigeria.png"></a>
 	</div>
-	
+
 	<p class="text-center text-sm text-thin"><a href="https://github.com/codefornigeria/data-kit-ui" target="_blank">Fork this project on Github</a></p>
 </div>

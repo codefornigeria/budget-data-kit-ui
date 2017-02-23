@@ -1,13 +1,24 @@
-angular.module('app.controllers', [])
+  angular.module('app.controllers', [])
 
 .factory('API', ['Restangular', function(Restangular) {
     return Restangular.withConfig(function(RestangularConfigurer) {
          RestangularConfigurer.setBaseUrl('https://sahara-datakit-api.herokuapp.com/');
     });
  }])
-  
-.controller('appCtrl', function($scope, Restangular, $state, $stateParams) {
+.controller('appCtrl', function($scope, Restangular, $state, $stateParams,$feathers) {
+
+     var schemeService = $feathers.service('schemes')
+      schemeService.find({
+        query:{
+
+        }
+      }).then(function(schemes){
+        if(schemes.data.length){
+          $scope.schemes  =schemes.data
+        }
+      })
     Restangular.all('project').getList().then(function(response){
+
         $scope.projects = response;
     })
 
@@ -27,16 +38,32 @@ angular.module('app.controllers', [])
     $scope.quantity = 3;
 
 	$scope.search = function() {
-        if ($scope.searchKeyword){ 
-            Restangular.one('search').get({query: $scope.searchKeyword}).then(function(response){
-                $scope.results = response;
-                $scope.persons = $scope.results.person;
-                $scope.projects = $scope.results.project;
-                $scope.total =  parseInt($scope.results.person.length) +  parseInt($scope.results.project.length);
-             }, function(error){
-                $scope.error = error;
-            })
-            
+        if ($scope.searchKeyword){
+          var schemeService = $feathers.service('schemes')
+           schemeService.find({
+             query:{
+                $text: { $search: $scope.searchKeyword },
+                $populate:'sectors' }
+           }).then(function(schemes){
+          //   console.log('showing search schemes',schemes)
+             if(schemes.data.length){
+               $scope.total = schemes.total
+               $scope.schemes  =schemes.data
+               $scope.notFound = false
+             }
+           }).catch(function(err){
+             $scope.error = err
+           })
+
+            // Restangular.one('search').get({query: $scope.searchKeyword}).then(function(response){
+            //     $scope.results = response;
+            //     $scope.persons = $scope.results.person;
+            //     $scope.projects = $scope.results.project;
+            //     $scope.total =  parseInt($scope.results.person.length) +  parseInt($scope.results.project.length);
+            //  }, function(error){
+            //     $scope.error = error;
+            // })
+
             $state.go('results', {query: $scope.searchKeyword})
         }
     }
@@ -59,28 +86,54 @@ angular.module('app.controllers', [])
     }
 })
 
-.controller('resultCtrl', function($scope, Restangular, $state, $stateParams) {
+.controller('resultCtrl', function($scope, Restangular, $state, $stateParams,$feathers) {
 	$scope.searchKeyword = $stateParams.query;
-
+  console.log($scope)
     $scope.search = function() {
+
     	if ($scope.searchKeyword){
-            $state.go('results', {query: $scope.searchKeyword})
-            $scope.searching = true;
-    		Restangular.one('search').get({query: $scope.searchKeyword}).then(function(response){
-                $scope.searching = false;
-                if (response.person == '' && response.project == '') {
-                    $scope.notFound = true;
-                } else {
-                    $scope.results = response;
-                    $scope.persons = $scope.results.person;
-                    console.log($scope.persons)
-                    $scope.projects = $scope.results.project;
-                    $scope.total =  parseInt($scope.results.person.length) +  parseInt($scope.results.project.length);
-                }
-             }, function(error){
-                $scope.searching = false;
-                $scope.error = error;
-            });
+          //  $state.go('results', {query: $scope.searchKeyword})
+             $scope.searching = true;
+            var schemeService = $feathers.service('schemes')
+             schemeService.find({
+               query:{
+                  $text: { $search: $scope.searchKeyword },
+                  $populate:'sectors' }
+             }).then(function(schemes){
+               console.log('showing search schemes',schemes)
+
+               if(schemes.data.length){
+                 $scope.$apply(function () {
+                   $scope.searching = false;
+
+                   $scope.total = schemes.total
+                   $scope.schemes  =schemes.data
+                   $scope.notFound = false
+             });
+
+
+                    // console.log($scope)
+               }
+             }).catch(function(err){
+               $scope.error = err
+             })
+
+
+    		// Restangular.one('search').get({query: $scope.searchKeyword}).then(function(response){
+        //         $scope.searching = false;
+        //         if (response.person == '' && response.project == '') {
+        //             $scope.notFound = true;
+        //         } else {
+        //             $scope.results = response;
+        //             $scope.persons = $scope.results.person;
+        //             console.log($scope.persons)
+        //             $scope.projects = $scope.results.project;
+        //             $scope.total =  parseInt($scope.results.person.length) +  parseInt($scope.results.project.length);
+        //         }
+        //      }, function(error){
+        //         $scope.searching = false;
+        //         $scope.error = error;
+        //     });
     	}
     }
 
@@ -150,7 +203,7 @@ angular.module('app.controllers', [])
 
     $scope.compare = function (contract) {
         $scope.compareProjects = true;
-        $scope.contract = contract;    
+        $scope.contract = contract;
     }
 
     $scope.compareProject = function () {
@@ -162,7 +215,7 @@ angular.module('app.controllers', [])
                 $scope.searching = false;
                 $scope.showComparison = true;
                 $scope.similarProjects = response.relatedProjects;
-        })    
+        })
     }
 
     $scope.closeComparison = function () {
@@ -173,7 +226,7 @@ angular.module('app.controllers', [])
     }
 })
 
-.controller('compareCtrl', function ($scope, Restangular, $state, $stateParams) { 
+.controller('compareCtrl', function ($scope, Restangular, $state, $stateParams) {
     Restangular.one('project').get({matched: false}).then(function(response) {
         $scope.projects = response;
     })

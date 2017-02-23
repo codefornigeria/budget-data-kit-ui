@@ -1,0 +1,27 @@
+<div class="col-md-4 col-sm-6 m-b-md shadow-mobile clickable" ng-repeat="scheme in schemes">
+	<div class="col-md-12 card-md clickable" ng-click="showResult(scheme)">
+		<span class="col-md-12 no-padder">
+						<h3>{{scheme.name}}</h3>
+			<hr>
+		</span>
+
+		<span class="col-md-12 no-padder">
+			<p class="project-desc">{{person.graphData}}</p>
+		</span>
+
+		<span class="col-md-6 col-xs-6 no-padder">
+			<b>Political party</b>
+			<p>APC</p>
+		</span>
+
+		<span class="col-md-6 col-xs-6 no-padder">
+			<b>State</b>
+			<p>{{person.state.name}}</p>
+		</span>
+
+		<span class="col-md-6 col-xs-6 no-padder">
+			<b>District</b>
+			<p>{{person.district.name}}</p>
+		</span>
+	</div>
+</div>

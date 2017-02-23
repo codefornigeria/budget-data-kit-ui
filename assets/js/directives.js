@@ -13,13 +13,18 @@ angular.module('app.directives', [])
     };
 })
 
+.directive('schemeCard', function () {
+    return {
+        restrict: 'EA',
+        templateUrl: "modules/scheme-card.html"
+    }
+})
 .directive('personCard', function () {
     return {
         restrict: 'EA',
         templateUrl: "modules/person-card.html"
     }
 })
-
 .directive('projectCard', function () {
     return {
         restrict: 'EA',
